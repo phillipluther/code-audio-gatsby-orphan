@@ -12,8 +12,8 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       allPostsData
     }
-  }
-}
+  };
+};
 
 export default function Home({ allPostsData }: {
   allPostsData: PostMetadataProps[],
@@ -48,5 +48,5 @@ export default function Home({ allPostsData }: {
         </ul>
       </section>
     </Layout>
-  )
+  );
 }

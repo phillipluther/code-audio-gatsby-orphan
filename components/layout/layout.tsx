@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import classnames from 'classnames';
+import { CSSTransition } from 'react-transition-group';
 import VisuallyHidden from '../visually-hidden';
 import Logo from './dilettante-guru-logo.svg';
 import styles from './layout.module.css';
@@ -64,6 +66,7 @@ export default function Layout({ children, home }: {
   home?: boolean,
 }) {
   const TitleTag = home ? 'h1' : 'p';
+  const [isMenuOpen, toggleMenu] = useState(false);
 
   return (
     <div className={styles.wrapper}>
@@ -71,7 +74,7 @@ export default function Layout({ children, home }: {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <header>
+      <header className={styles.header}>
         <TitleTag className={styles.title}>
           <Link href="/">
             <a>
@@ -84,14 +87,47 @@ export default function Layout({ children, home }: {
           </Link>
         </TitleTag>
 
-        <NavLinks />
-        <SocialLinks />
+        <button
+          className={styles.toggle}
+          type="button"
+          aria-controls="navMenu"
+          onClick={() => toggleMenu(!isMenuOpen)}
+        >
+          <span
+            className={classnames(styles.hamburger, {
+              [styles.open]: isMenuOpen,
+            })}
+            aria-hidden="true"
+          />
+          <VisuallyHidden>
+            {`${isMenuOpen ? 'Close' : 'Open'} Navigation Menu`}
+          </VisuallyHidden>
+        </button>
+
+        
+        <CSSTransition
+          in={isMenuOpen}
+          timeout={360}
+          classNames="nav"
+          unmountOnExit
+        >
+          <div id="navMenu">
+            <NavLinks />
+            <SocialLinks />
+          </div>
+        </CSSTransition>
       </header>
 
       <main>{children}</main>
 
       <footer>
+        <VisuallyHidden as="h2">Supplemental Information</VisuallyHidden>
 
+        <section>
+          <VisuallyHidden as="h3">Navigation</VisuallyHidden>
+          <NavLinks />
+          <SocialLinks />
+        </section>
       </footer>
     </div>
   );

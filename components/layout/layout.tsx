@@ -2,11 +2,11 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import classnames from 'classnames';
-import { CSSTransition } from 'react-transition-group';
+import { DialogOverlay, DialogContent } from '@reach/dialog';
+import { useTransition, animated } from 'react-spring';
 import VisuallyHidden from '../visually-hidden';
 import Logo from './dilettante-guru-logo.svg';
 import styles from './layout.module.css';
-// import utilStyles from '../../styles/utils.module.css';
 
 const navLinks = [
   {
@@ -34,9 +34,9 @@ const NavLinks = ({ className }: {
   className?: string,
 }) => (
   <nav className={classnames(styles.nav, className)}>
-    <ul>
+    <ul className={styles.navList}>
       {navLinks.map(({ href, label }) => (
-        <li key={href}>
+        <li key={href} className={styles.listItem}>
           <Link href={href}>
             <a>
               {label}
@@ -54,7 +54,7 @@ const SocialLinks = ({ className }: {
 }) => (
   <ul className={classnames(styles.social, className)}>
     {socialLinks.map(({ href, label }) => (
-      <li key={href}>
+      <li key={href} className={styles.listItem}>
         <a href={href}>{label}</a>
       </li>
     ))}
@@ -65,8 +65,26 @@ export default function Layout({ children, home }: {
   children: React.ReactNode,
   home?: boolean,
 }) {
+  const AnimatedDialogOverlay = animated(DialogOverlay);
+  const AnimatedDialogContent = animated(DialogContent);
+
   const TitleTag = home ? 'h1' : 'p';
-  const [isMenuOpen, toggleMenu] = useState(false);
+  const [isMenuOpen, showMenu] = useState(false);
+
+  const transitions = useTransition(isMenuOpen, {
+    from: {
+      opacity: 0,
+      x: 100,
+    },
+    enter: {
+      opacity: 1,
+      x: 0,
+    },
+    leave: {
+      opacity: 0,
+      x: 100,
+    },
+  });
 
   return (
     <div className={styles.wrapper}>
@@ -90,32 +108,36 @@ export default function Layout({ children, home }: {
         <button
           className={styles.toggle}
           type="button"
-          aria-controls="navMenu"
-          onClick={() => toggleMenu(!isMenuOpen)}
+          onClick={() => showMenu(true)}
         >
-          <span
-            className={classnames(styles.hamburger, {
-              [styles.open]: isMenuOpen,
-            })}
-            aria-hidden="true"
-          />
-          <VisuallyHidden>
-            {`${isMenuOpen ? 'Close' : 'Open'} Navigation Menu`}
-          </VisuallyHidden>
+          <span className={styles.hamburger} aria-hidden="true" />
+          <VisuallyHidden>Open Navigation Menu</VisuallyHidden>
         </button>
 
-        
-        <CSSTransition
-          in={isMenuOpen}
-          timeout={360}
-          classNames="nav"
-          unmountOnExit
-        >
-          <div id="navMenu">
-            <NavLinks />
-            <SocialLinks />
-          </div>
-        </CSSTransition>
+        {transitions((transitionStyles, item) => item && (
+          <AnimatedDialogOverlay
+            className={styles.overlay}
+            isOpen={isMenuOpen}
+            onDismiss={() => showMenu(false)}
+            style={{ opacity: transitionStyles.opacity }}
+          >
+            <AnimatedDialogContent
+              className={styles.menu}
+              aria-label="Navigation Menu"
+              style={{
+                transform: transitionStyles.x.to((val) => `translate3d(${val}%, 0, 0)`)
+              }}
+            >
+              <button className={styles.toggle} onClick={() => showMenu(false)}>
+                <VisuallyHidden>Close Navigation Menu</VisuallyHidden>
+                <span className={styles.close} aria-hidden="true" />
+              </button>
+
+              <NavLinks />
+              <SocialLinks />
+            </AnimatedDialogContent>
+          </AnimatedDialogOverlay>
+        ))}
       </header>
 
       <main>{children}</main>

@@ -31,13 +31,16 @@
   padding: 8px;
 }
 
-.hamburger {
+.hamburger,
+.close {
   position: relative;
 }
 
 .hamburger,
 .hamburger::before,
-.hamburger::after {
+.hamburger::after,
+.close,
+.close::before {
   display: block;
   width: 100%;
   border-top: 3px solid #1c1b0a;
@@ -45,7 +48,8 @@
 }
 
 .hamburger::before,
-.hamburger::after {
+.hamburger::after,
+.close::before {
   content: "";
   position: absolute;
   left: 0;
@@ -60,20 +64,70 @@
   transform: translate3d(0, 6px, 0);
 }
 
-.open {
+.close,
+.close::before {
+  border-color: #fff;
+}
+
+.close {
   transform: rotate(-45deg);
 }
 
-.open::before {
-  transform: translate3d(0, 0, 0);
+.close::before {
+  transform: rotate(-90deg);
 }
 
-.open::after {
-  transform: translate3d(0, 0, 0) rotate(90deg);
+.overlay {
+  background: #ffffffcc;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80%;
+  max-width: 300px;
+  height: 100%;
+  background: #1c1b0a;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.menu a {
+  color: #fff;
+}
+
+.menu .toggle {
+  align-self: end;
+}
+
+.navList,
+.social {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem a {
+  display: block;
+  line-height: 3rem;
+  white-space: nowrap;
 }
 
 @media screen and (min-width: 640px) {
   .wrapper {
     padding: 0 24px;
+  }
+
+  .menu {
+    padding: 24px;
   }
 }

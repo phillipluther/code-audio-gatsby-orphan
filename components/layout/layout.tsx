@@ -4,6 +4,7 @@ import Link from 'next/link';
 import classnames from 'classnames';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 import { useTransition, animated } from 'react-spring';
+import { FaTwitter, FaYoutube, FaEnvelope } from 'react-icons/fa';
 import VisuallyHidden from '../visually-hidden';
 import Logo from './dilettante-guru-logo.svg';
 import styles from './layout.module.css';
@@ -27,6 +28,17 @@ const socialLinks = [
   {
     href: 'https://twitter.com/DilettanteGuru',
     label: '@DilettanteGuru on Twitter',
+    icon: FaTwitter,
+  },
+  {
+    href: 'https://youtube.com/phillipluther',
+    label: 'The Dilettante Guru YouTube Channel',
+    icon: FaYoutube,
+  },
+  {
+    href: 'mailto:hello@dilettante.guru',
+    label: 'Email phil@dilettante.guru',
+    icon: FaEnvelope,
   },
 ];
 
@@ -53,9 +65,12 @@ const SocialLinks = ({ className }: {
   className?: string,
 }) => (
   <ul className={classnames(styles.social, className)}>
-    {socialLinks.map(({ href, label }) => (
+    {socialLinks.map(({ icon: Icon, href, label }) => (
       <li key={href} className={styles.listItem}>
-        <a href={href}>{label}</a>
+        <a href={href}>
+          <VisuallyHidden>{label}</VisuallyHidden>
+          <Icon aria-hidden="true" />
+        </a>
       </li>
     ))}
   </ul>

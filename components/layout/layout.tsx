@@ -76,6 +76,13 @@ const SocialLinks = ({ className }: {
   </ul>
 );
 
+function getCopyrightDateString() {
+  const startYear = 2021;
+  const currentYear = new Date().getFullYear();
+
+  return startYear === currentYear ? startYear.toString() : `${startYear}-${currentYear}`;
+}
+
 export default function Layout({ children, home }: {
   children: React.ReactNode,
   home?: boolean,
@@ -149,7 +156,7 @@ export default function Layout({ children, home }: {
               </button>
 
               <NavLinks />
-              <SocialLinks />
+              <SocialLinks className={styles.headerSocial} />
             </AnimatedDialogContent>
           </AnimatedDialogOverlay>
         ))}
@@ -161,9 +168,25 @@ export default function Layout({ children, home }: {
         <VisuallyHidden as="h2">Supplemental Information</VisuallyHidden>
 
         <section>
-          <VisuallyHidden as="h3">Navigation</VisuallyHidden>
-          <NavLinks />
-          <SocialLinks />
+          <VisuallyHidden as="h3">Footer Navigation</VisuallyHidden>
+          <NavLinks className={styles.footerNav} />
+          <SocialLinks className={styles.footerSocial} />
+        </section>
+
+        <section>
+          <VisuallyHidden as="h3">Copyright Information and Disclaimers</VisuallyHidden>
+          <p>
+            All content on The Dilettante Guru is Copyright &copy;
+            {` ${getCopyrightDateString()} `}
+            by <a href="https://phillipluther.com">Phillip Luther</a> unless otherwise noted.
+          </p>
+
+          <p>
+            All thoughts and opinions expressed on The Dilettante Guru and its connected
+            social media profiles belong to me, Phillip Luther, and do not necessarily
+            reflect the views or opinions of any associated organizations or corporate
+            entities.
+          </p>
         </section>
       </footer>
     </div>

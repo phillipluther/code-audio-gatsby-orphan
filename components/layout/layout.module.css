@@ -112,32 +112,53 @@
 .navList,
 .social {
   list-style: none;
-}
-
-.navList {
   padding: 0;
   margin: 0;
 }
 
 .social {
+  display: flex;
+}
+
+.social a,
+.listItem a {
+  display: block;
+  line-height: 48px;
+  white-space: nowrap;
+}
+
+.social a {
+  text-align: center;
+  width: 48px;
+}
+
+.headerSocial {
   width: 100%;
   margin: 24px auto 0;
   padding: 24px 10% 0;
   border-top: 1px solid #fff;
-  display: flex;
   justify-content: space-between;
 }
 
-.social a {
-  width: 48px;
-  text-align: center;
+.headerSocial a {
   font-size: 2rem;
 }
 
-.listItem a {
-  display: block;
-  line-height: 3rem;
-  white-space: nowrap;
+.footerNav .navList {
+  display: flex;
+}
+
+.footerNav .navList,
+.footerSocial {
+  justify-content: center;
+}
+
+.footerNav a {
+  padding: 0 16px;
+}
+
+.footerSocial a {
+  font-size: 1.4rem;
 }
 
 @media screen and (min-width: 640px) {

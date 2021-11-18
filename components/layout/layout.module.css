@@ -14,11 +14,16 @@
 
 .title {
   margin: 0;
+  line-height: 0;
 }
 
 .logo {
   height: 64px;
   width: auto;
+}
+
+.logoLink {
+  display: block;
 }
 
 .toggle {

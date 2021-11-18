@@ -7,6 +7,7 @@ import { useTransition, animated } from 'react-spring';
 import { FaTwitter, FaYoutube, FaEnvelope } from 'react-icons/fa';
 import VisuallyHidden from '../visually-hidden';
 import Logo from './dilettante-guru-logo.svg';
+import utilStyles from '../../styles/utils.module.css';
 import styles from './layout.module.css';
 
 const navLinks = [
@@ -117,7 +118,7 @@ export default function Layout({ children, home }: {
       <header className={styles.header}>
         <TitleTag className={styles.title}>
           <Link href="/">
-            <a>
+            <a className={styles.logoLink}>
               <Logo
                 className={styles.logo}
                 aria-hidden="true"
@@ -164,7 +165,7 @@ export default function Layout({ children, home }: {
 
       <main>{children}</main>
 
-      <footer>
+      <footer className={styles.footer}>
         <VisuallyHidden as="h2">Supplemental Information</VisuallyHidden>
 
         <section>
@@ -173,7 +174,7 @@ export default function Layout({ children, home }: {
           <SocialLinks className={styles.footerSocial} />
         </section>
 
-        <section>
+        <section className={utilStyles.fontSm}>
           <VisuallyHidden as="h3">Copyright Information and Disclaimers</VisuallyHidden>
           <p>
             All content on The Dilettante Guru is Copyright &copy;

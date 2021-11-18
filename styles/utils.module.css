@@ -1,4 +1,24 @@
-.heading2Xl {
+.fontSm {
+  font-size: 0.8rem;
+}
+
+.fontNorm {
+  font-size: 1rem;
+}
+
+.fontMd {
+  font-size: 1.25rem;
+}
+
+.fontLg {
+  font-size: 1.563rem;
+}
+
+.fontXl {
+  font-size: 1.953rem;
+}
+
+/* .heading2Xl {
   font-size: 2.5rem;
   line-height: 1.2;
   font-weight: 800;
@@ -49,4 +69,4 @@
 
 .lightText {
   color: #666;
-}
+} */

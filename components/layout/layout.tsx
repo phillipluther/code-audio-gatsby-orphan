@@ -6,6 +6,7 @@ import { DialogOverlay, DialogContent } from '@reach/dialog';
 import { useTransition, animated } from 'react-spring';
 import { FaTwitter, FaYoutube, FaEnvelope } from 'react-icons/fa';
 import VisuallyHidden from '../visually-hidden';
+import Divider from '../divider';
 import Logo from './dilettante-guru-logo.svg';
 import utilStyles from '../../styles/utils.module.css';
 import styles from './layout.module.css';
@@ -166,6 +167,7 @@ export default function Layout({ children, home }: {
       <main>{children}</main>
 
       <footer className={styles.footer}>
+        <Divider />
         <VisuallyHidden as="h2">Supplemental Information</VisuallyHidden>
 
         <section>

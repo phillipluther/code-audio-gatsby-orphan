@@ -165,9 +165,9 @@ export default function Layout({ children, home }: {
       </header>
 
       <main>{children}</main>
+      <Divider />
 
       <footer className={styles.footer}>
-        <Divider />
         <VisuallyHidden as="h2">Supplemental Information</VisuallyHidden>
 
         <section>

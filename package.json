@@ -11,6 +11,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/lora": "^4.5.1",
     "@reach/dialog": "^0.16.2",
     "@svgr/webpack": "^5.5.0",
     "@types/react-transition-group": "^4.4.4",

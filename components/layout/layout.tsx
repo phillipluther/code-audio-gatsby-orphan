@@ -113,19 +113,18 @@ export default function Layout({ children, home }: {
 
   const NavContent = () => (<>
     <NavLinks />
-    <SocialLinks className={styles.headerSocial} />
     <Divider />
   </>);
 
-  const showFullNav = useMediaQuery({ query: '(min-width: 720px)' });
+  const showFullNav = useMediaQuery({ query: '(min-width: 600px)' });
 
   return (
-    <div className={styles.wrapper}>
+    <div className={classnames(styles.wrapper, utilStyles.padX)}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <header className={styles.header}>
+      <header className={classnames(styles.header, utilStyles.padY, utilStyles.displayFont)}>
         <TitleTag className={styles.title}>
           <Link href="/">
             <a className={styles.logoLink}>
@@ -157,7 +156,7 @@ export default function Layout({ children, home }: {
                 style={{ opacity: transitionStyles.opacity }}
               >
                 <AnimatedDialogContent
-                  className={styles.menu}
+                  className={classnames(styles.menu, utilStyles.pad)}
                   aria-label="Navigation Menu"
                   style={{
                     transform: transitionStyles.x.to((val) => `translate3d(${val}%, 0, 0)`)

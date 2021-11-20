@@ -18,6 +18,41 @@
   font-size: 1.953rem;
 }
 
+.displayFont {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.pad {
+  padding: 24px;
+}
+
+.padX {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.padY {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+@media screen and (min-width: 600px) {
+  .pad {
+    padding: 32px;
+  }
+
+  .padX {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .padY {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
 /* .heading2Xl {
   font-size: 2.5rem;
   line-height: 1.2;

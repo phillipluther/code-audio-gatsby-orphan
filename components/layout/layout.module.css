@@ -1,6 +1,5 @@
 .wrapper {
   max-width: 800px;
-  padding: 0 16px;
   margin: 0 auto;
 }
 
@@ -9,7 +8,6 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 0;
 }
 
 .title {
@@ -32,7 +30,6 @@
   height: 48px;
   background: none;
   border: 0;
-  margin-bottom: 16px;
   padding: 8px;
 }
 
@@ -49,7 +46,6 @@
   display: block;
   width: 100%;
   border-top: 3px solid #1c1b0a;
-  transition: transform 240ms ease;
 }
 
 .hamburger::before,
@@ -71,7 +67,7 @@
 
 .close,
 .close::before {
-  border-color: #fff;
+  border-color: #e8e7d6;
 }
 
 .close {
@@ -83,35 +79,12 @@
 }
 
 .overlay {
-  background: #ffffffcc;
+  background: #e8e7d6cc;
   position: fixed;
   width: 100%;
   height: 100%;
   left: 0;
   top: 0;
-}
-
-.menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 80%;
-  max-width: 300px;
-  height: 100%;
-  background: #1c1b0a;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
-}
-
-.menu a {
-  color: #fff;
-}
-
-.menu .toggle {
-  align-self: end;
 }
 
 .navList,
@@ -135,18 +108,29 @@
 .social a {
   text-align: center;
   width: 48px;
+  color: inherit;
 }
 
-.headerSocial {
-  width: 100%;
-  margin: 24px auto 0;
-  padding: 24px 10% 0;
-  border-top: 1px solid #fff;
-  justify-content: space-between;
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80%;
+  max-width: 300px;
+  height: 100%;
+  background: #1c1b0a;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
 }
 
-.headerSocial a {
-  font-size: 1.953rem;
+.menu a {
+  color: #fff;
+}
+
+.menu .toggle {
+  align-self: end;
 }
 
 .footerNav .navList {
@@ -156,6 +140,7 @@
 .footerNav .navList,
 .footerSocial {
   justify-content: center;
+  margin-bottom: 8px;
 }
 
 .footerNav a {
@@ -166,7 +151,7 @@
   font-size: 1.563rem;
 }
 
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 600px) {
   .wrapper {
     padding: 0 24px;
   }
@@ -181,16 +166,6 @@
 
   .navList a {
     padding: 0 12px;
-  }
-
-  .headerSocial {
-    width: auto;
-    margin: 0;
-    padding: 0;
-    border: 0;
-  }
-
-  .headerSocial a {
-    font-size: 1.563rem;
+    color: inherit;
   }
 }

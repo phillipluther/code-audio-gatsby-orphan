@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 import { useTransition, animated } from 'react-spring';
 import { FaTwitter, FaYoutube, FaEnvelope } from 'react-icons/fa';
+import { useMediaQuery } from 'react-responsive';
 import VisuallyHidden from '../visually-hidden';
 import Divider from '../divider';
 import Logo from './dilettante-guru-logo.svg';
@@ -110,6 +111,14 @@ export default function Layout({ children, home }: {
     },
   });
 
+  const NavContent = () => (<>
+    <NavLinks />
+    <SocialLinks className={styles.headerSocial} />
+    <Divider />
+  </>);
+
+  const showFullNav = useMediaQuery({ query: '(min-width: 720px)' });
+
   return (
     <div className={styles.wrapper}>
       <Head>
@@ -129,39 +138,42 @@ export default function Layout({ children, home }: {
           </Link>
         </TitleTag>
 
-        <button
-          className={styles.toggle}
-          type="button"
-          onClick={() => showMenu(true)}
-        >
-          <span className={styles.hamburger} aria-hidden="true" />
-          <VisuallyHidden>Open Navigation Menu</VisuallyHidden>
-        </button>
-
-        {transitions((transitionStyles, item) => item && (
-          <AnimatedDialogOverlay
-            className={styles.overlay}
-            isOpen={isMenuOpen}
-            onDismiss={() => showMenu(false)}
-            style={{ opacity: transitionStyles.opacity }}
-          >
-            <AnimatedDialogContent
-              className={styles.menu}
-              aria-label="Navigation Menu"
-              style={{
-                transform: transitionStyles.x.to((val) => `translate3d(${val}%, 0, 0)`)
-              }}
+        {showFullNav ? <NavContent /> : (
+          <>
+            <button
+              className={styles.toggle}
+              type="button"
+              onClick={() => showMenu(true)}
             >
-              <button className={styles.toggle} onClick={() => showMenu(false)}>
-                <VisuallyHidden>Close Navigation Menu</VisuallyHidden>
-                <span className={styles.close} aria-hidden="true" />
-              </button>
-
-              <NavLinks />
-              <SocialLinks className={styles.headerSocial} />
-            </AnimatedDialogContent>
-          </AnimatedDialogOverlay>
-        ))}
+              <span className={styles.hamburger} aria-hidden="true" />
+              <VisuallyHidden>Open Navigation Menu</VisuallyHidden>
+            </button>
+    
+            {transitions((transitionStyles, item) => item && (
+              <AnimatedDialogOverlay
+                className={styles.overlay}
+                isOpen={isMenuOpen}
+                onDismiss={() => showMenu(false)}
+                style={{ opacity: transitionStyles.opacity }}
+              >
+                <AnimatedDialogContent
+                  className={styles.menu}
+                  aria-label="Navigation Menu"
+                  style={{
+                    transform: transitionStyles.x.to((val) => `translate3d(${val}%, 0, 0)`)
+                  }}
+                >
+                  <button className={styles.toggle} onClick={() => showMenu(false)}>
+                    <VisuallyHidden>Close Navigation Menu</VisuallyHidden>
+                    <span className={styles.close} aria-hidden="true" />
+                  </button>
+    
+                  <NavContent />
+                </AnimatedDialogContent>
+              </AnimatedDialogOverlay>
+            ))}
+          </>
+        )}
       </header>
 
       <main>{children}</main>

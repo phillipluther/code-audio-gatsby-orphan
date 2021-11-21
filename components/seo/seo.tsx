@@ -9,7 +9,7 @@ export type SeoProps = {
   children?: React.ReactNode,
 };
 
-export default function SEO({
+export default function Seo({
   title,
   description,
   type = 'website',

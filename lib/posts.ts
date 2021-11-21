@@ -9,8 +9,8 @@ const postsDirectory = path.join(process.cwd(), 'posts');
 export type FrontmatterProps = {
   date: string,
   title: string,
-  summary?: string,
-  cover?: string,
+  description?: string,
+  image?: string,
   tags?: string,
 };
 

@@ -6,7 +6,7 @@ import { PostMetadataProps } from '../../lib/posts';
 import styles from './post-summary.module.css';
 
 export type PostProps = PostMetadataProps & {
-  titleTag?: string,
+  titleTag?: keyof JSX.IntrinsicElements,
   children?: React.ReactNode,
 };
 
@@ -17,6 +17,7 @@ export default function PostSummary({
   date,
   id: slug,
   image = '/images/dilettante-guru-card.jpg',
+  children,
 }: PostProps) {
 
   return (
@@ -40,6 +41,8 @@ export default function PostSummary({
         />
       </header>
       <p>{description}</p>
+
+      {children}
 
       <footer className={styles.footer}>
         <Link href={`/posts/${slug}`}>

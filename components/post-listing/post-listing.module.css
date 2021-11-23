@@ -5,3 +5,21 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+@media screen and (min-width: 600px) {
+  .list {
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+
+  .item {
+    width: 50%;
+    padding: 0 16px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .item {
+    width: 33%;
+  }
+}

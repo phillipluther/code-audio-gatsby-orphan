@@ -1,0 +1,26 @@
+.wrapper {
+  position: relative;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.title,
+.date {
+  order: 2;
+}
+
+.image {
+  order: 1;
+}
+
+.title {
+  line-height: 1.25;
+  margin: 1rem 0;
+}
+
+.title a {
+  color: inherit;
+}

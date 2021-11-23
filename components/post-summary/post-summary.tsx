@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import classnames from 'classnames';
 import Date from '../date';
 import VisuallyHidden from '../visually-hidden';
 import { PostMetadataProps } from '../../lib/posts';
 import styles from './post-summary.module.css';
+import utilStyles from '../../styles/utils.module.css';
 
 export type PostProps = PostMetadataProps & {
   titleTag?: keyof JSX.IntrinsicElements,
@@ -16,36 +18,45 @@ export default function PostSummary({
   description,
   date,
   id: slug,
-  image = '/images/dilettante-guru-card.jpg',
+  image = '/images/dilettante-guru-card.png',
   children,
 }: PostProps) {
+  const postUrl = `/posts/${slug}`;
 
   return (
     <article className={styles.wrapper}>
       <header className={styles.header}>
-        <TitleTag className={styles.title}>
-          <Link href={`/posts/${slug}`}>
-            <a>{title}</a>
+        <TitleTag className={classnames(styles.title, utilStyles.fontMd)}>
+          <Link href={postUrl}>
+            <a tabIndex={-1}>
+              {title}
+            </a>
           </Link>
         </TitleTag>
 
-        <Date dateString={date} />
+        <Date dateString={date} className={styles.date} />
 
-        <Image
-          src={image}
-          width="1200"
-          height="630"
-          layout="intrinsic"
-          alt={description}
-          aria-hidden="true"
-        />
+        <Link href={postUrl}>
+          <a tabIndex={-1}>
+            <Image
+              className={styles.image}
+              src={image}
+              width="1200"
+              height="630"
+              layout="intrinsic"
+              alt={description}
+              aria-hidden="true"
+            />
+          </a>
+        </Link>
       </header>
+
       <p>{description}</p>
 
       {children}
 
       <footer className={styles.footer}>
-        <Link href={`/posts/${slug}`}>
+        <Link href={postUrl}>
           <a className={styles.link}>
             Read More
             <VisuallyHidden>: {title}</VisuallyHidden>

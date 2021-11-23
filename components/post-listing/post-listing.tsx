@@ -8,9 +8,9 @@ export default function PostListing({
   labelTag: LabelTag = 'h2',
   postsData = [],
 }: {
-  className: string,
+  className?: string,
   label: string,
-  labelTag: keyof JSX.IntrinsicElements,
+  labelTag?: keyof JSX.IntrinsicElements,
   postsData?: PostProps[],
 }) {
   let summaryTitleTag;

@@ -1,10 +1,7 @@
-import Link from 'next/link';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import PostListing from '../components/post-listing';
-import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData, PostMetadataProps } from '../lib/posts';
-import Date from '../components/date';
 import { GetStaticProps } from 'next';
 
 export const getStaticProps: GetStaticProps = async () => {

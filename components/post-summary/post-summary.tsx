@@ -26,7 +26,7 @@ export default function PostSummary({
   return (
     <article className={styles.wrapper}>
       <header className={styles.header}>
-        <TitleTag className={classnames(styles.title, utilStyles.fontMd)}>
+        <TitleTag className={classnames(styles.title, utilStyles.fontMd, utilStyles.displayFont)}>
           <Link href={postUrl}>
             <a tabIndex={-1}>
               {title}
@@ -44,7 +44,7 @@ export default function PostSummary({
               width="1200"
               height="630"
               layout="intrinsic"
-              alt={description}
+              alt={title}
               aria-hidden="true"
             />
           </a>

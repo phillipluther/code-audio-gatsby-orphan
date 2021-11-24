@@ -4,41 +4,37 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
-const postsDirectory = path.join(process.cwd(), 'posts');
+const POSTS_DIRECTORY = path.join(process.cwd(), 'posts');
 
-export type FrontmatterProps = {
+function getSlugFromFilePath(filePath) {
+  const chunks = filePath.split(/(\\|\/)/);
+  const slug = chunks.pop().replace(/\.md$/, '');
+
+  return slug;
+}
+
+export type PostMetadataProps = {
   date: string,
   title: string,
+  slug?: string,
   description?: string,
   image?: string,
   tags?: string,
 };
 
-export type PostMetadataProps = FrontmatterProps & {
-  id: string,
-};
-
 export function getSortedPostsData() {
-  // Get file names under /posts
-  const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames.map(fileName => {
-    // Remove ".md" from file name to get id
-    const id = fileName.replace(/\.md$/, '');
-
-    // Read markdown file as string
-    const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-
-    // Use gray-matter to parse the post metadata section
+  const allPostsData = getPostPaths().map(({ params }) => {
+    const { filePath } = params;
+    const slug = getSlugFromFilePath(filePath);
+    const fileContents = fs.readFileSync(filePath, 'utf8');
     const matterResult = matter(fileContents);
 
-    // Combine the data with the id
     return {
-      id,
-      ...(matterResult.data as FrontmatterProps),
+      slug,
+      ...(matterResult.data as PostMetadataProps),
     };
   });
-  // Sort posts by date
+
   return allPostsData.sort(({ date: a }, { date: b }) => {
     if (a < b) {
       return 1;
@@ -50,49 +46,58 @@ export function getSortedPostsData() {
   });
 }
 
-export function getAllPostIds() {
-  const fileNames = fs.readdirSync(postsDirectory);
+// Returns an array that looks like this for getStaticPath hooks:
+// [
+//   {
+//     params: {
+//       slug: 'ssg-ssr',
+//       filePath: '/absolute/path/to/markdown/file.md'
+//     }
+//   },
+//   {
+//     params: {
+//       slug: 'pre-rendering',
+//       filePath: '/absolute/path/to/markdown/file2.md'
+//     }
+//   }
+// ]
+export function getPostPaths(dir = POSTS_DIRECTORY) {
+  const fileNames = fs.readdirSync(dir);
+  const postPaths = fileNames.reduce((paramsArray, fileName) => {
+    const filePath = path.join(dir, fileName);
 
-  // Returns an array that looks like this:
-  // [
-  //   {
-  //     params: {
-  //       id: 'ssg-ssr'
-  //     }
-  //   },
-  //   {
-  //     params: {
-  //       id: 'pre-rendering'
-  //     }
-  //   }
-  // ]
-  return fileNames.map(fileName => {
-    return {
-      params: {
-        id: fileName.replace(/\.md$/, '')
-      }
-    };
-  });
+    if (/\.md$/.test(fileName)) {
+      paramsArray.push({
+        params: {
+          slug: getSlugFromFilePath(fileName),
+          filePath,
+        },
+      });
+    } else if (fs.lstatSync(filePath).isDirectory()) {
+      paramsArray = paramsArray.concat(getPostPaths(filePath));
+    }
+
+    return paramsArray;
+  }, []);
+
+  return postPaths;
 }
 
-export async function getPostData(id: string) {
-  const fullPath = path.join(postsDirectory, `${id}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
-
-  // Use gray-matter to parse the post metadata section
+export async function getPostData(slug: string) {
+  const postPaths = getPostPaths();
+  const match = postPaths.find(({ params }) => params.slug === slug);
+  const fileContents = fs.readFileSync(match.params.filePath, 'utf8');
   const matterResult = matter(fileContents);
-
-  // Use remark to convert markdown into HTML string
   const processedContent = await remark()
     .use(html)
     .process(matterResult.content);
-  const contentHtml = processedContent.toString();
 
-  // Combine the data with the id and contentHtml
+    const contentHtml = processedContent.toString();
+
   return {
-    id,
+    slug,
     contentHtml,
-    ...(matterResult.data as FrontmatterProps),
+    ...(matterResult.data as PostMetadataProps),
   };
 }
 

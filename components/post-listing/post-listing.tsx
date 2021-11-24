@@ -36,7 +36,7 @@ export default function PostListing({
 
       <ul className={styles.list}>
         {postsData.map((postData) => (
-          <li className={styles.item} key={postData.id}>
+          <li className={styles.item} key={postData.slug}>
             <PostSummary titleTag={summaryTitleTag} {...postData} />
           </li>
         ))}

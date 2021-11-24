@@ -24,7 +24,7 @@ export default function Home({ allPostsData }: {
       />
 
       <PostListing
-        label="Blog"
+        label="Latest Blog Posts"
         postsData={allPostsData}
       />
     </Layout>

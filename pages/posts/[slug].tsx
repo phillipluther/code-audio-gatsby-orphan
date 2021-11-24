@@ -2,11 +2,11 @@ import Layout from '../../components/layout';
 import SEO from '../../components/seo';
 import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
-import { getAllPostIds, getPostData } from '../../lib/posts';
+import { getPostPaths, getPostData } from '../../lib/posts';
 import { GetStaticProps, GetStaticPaths } from 'next';
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllPostIds();
+  const paths = getPostPaths();
   return {
     paths,
     fallback: false,
@@ -14,7 +14,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = await getPostData(params.id as string)
+  const postData = await getPostData(params.slug as string);
   return {
     props: {
       postData,

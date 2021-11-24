@@ -17,7 +17,7 @@ export default function PostSummary({
   titleTag: TitleTag = 'h3',
   description,
   date,
-  id: slug,
+  slug,
   image = '/images/dilettante-guru-card.png',
   children,
 }: PostProps) {

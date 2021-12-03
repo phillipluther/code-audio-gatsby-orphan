@@ -1,3 +1,5 @@
+import Image from 'next/image';
+import classnames from 'classnames';
 import Layout from '../../components/layout';
 import SEO from '../../components/seo';
 import Date from '../../components/date';
@@ -23,15 +25,31 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export default function Post({ postData }) {
+  const imageSrc = postData.image || '/images/dilettante-guru-card.png';
+
   return (
     <Layout>
       <SEO title={postData.title} description={''} />
       <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
-          <Date dateString={postData.date} />
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <header>
+          <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+          <Date className={utilStyles.lightText} dateString={postData.date} />
+          <Image
+            src={imageSrc}
+            width="1280"
+            height="720"
+            layout="intrinsic"
+            alt={postData.title}
+            aria-hidden="true"
+          />
+        </header>
+
+        <section
+          className={utilStyles.container}
+          dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+        />
+
+        <footer />
       </article>
     </Layout>
   );

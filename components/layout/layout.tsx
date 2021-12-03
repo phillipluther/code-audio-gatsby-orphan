@@ -111,11 +111,6 @@ export default function Layout({ children, home }: {
     },
   });
 
-  const NavContent = () => (<>
-    <NavLinks />
-    <Divider />
-  </>);
-
   const showFullNav = useMediaQuery({ query: '(min-width: 600px)' });
 
   return (
@@ -137,7 +132,7 @@ export default function Layout({ children, home }: {
           </Link>
         </TitleTag>
 
-        {showFullNav ? <NavContent /> : (
+        {showFullNav ? <NavLinks /> : (
           <>
             <button
               className={styles.toggle}
@@ -167,7 +162,8 @@ export default function Layout({ children, home }: {
                     <span className={styles.close} aria-hidden="true" />
                   </button>
     
-                  <NavContent />
+                  <NavLinks />
+                  <Divider />
                 </AnimatedDialogContent>
               </AnimatedDialogOverlay>
             ))}
@@ -178,7 +174,7 @@ export default function Layout({ children, home }: {
       <main>{children}</main>
       <Divider />
 
-      <footer className={styles.footer}>
+      <footer className={classnames(styles.footer, utilStyles.container)}>
         <VisuallyHidden as="h2">Supplemental Information</VisuallyHidden>
 
         <section>

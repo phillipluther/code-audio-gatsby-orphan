@@ -44,7 +44,7 @@
 .close::before {
   display: block;
   width: 100%;
-  border-top: 3px solid #1c1b0a;
+  border-top: 3px solid var(--primary-color-darkest);
 }
 
 .hamburger::before,
@@ -66,7 +66,7 @@
 
 .close,
 .close::before {
-  border-color: #e8e7d6;
+  border-color: var(--primary-color-lightest);
 }
 
 .close {
@@ -78,7 +78,8 @@
 }
 
 .overlay {
-  background: #e8e7d6cc;
+  background: var(--primary-color-lightest);
+  opacity: 0.8;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -117,7 +118,7 @@
   width: 80%;
   max-width: 300px;
   height: 100%;
-  background: #1c1b0a;
+  background: var(--primary-color-darkest);
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -133,7 +134,7 @@
 }
 
 .footer {
-  background: #1c1b0a;
+  background: var(--primary-color-darkest);
 }
 
 .footerNav .navList {

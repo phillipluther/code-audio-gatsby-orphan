@@ -65,25 +65,25 @@
 }
 
 .primeDarkest {
-  color: #1c1b0a;
+  color: var(--primary-color-darkest);
 }
 .primeDarker {
-  color: #4f4e3d;
+  color: var(--primary-color-darker);
 }
 .primeDark {
-  color: #828170;
+  color: var(--primary-color-dark);
 }
 .prime {
-  color: #9b9a89;
+  color: var(--primary-color);
 }
 .primeLight {
-  color: #b5b4a3;
+  color: var(--primary-color-light);
 }
 .primeLighter {
-  color: #cfcebd;
+  color: var(--primary-color-lighter);
 }
 .primeLightest {
-  color: #e8e7d6;
+  color: var(--primary-color-lightest);
 }
 
 @media screen and (min-width: 600px) {

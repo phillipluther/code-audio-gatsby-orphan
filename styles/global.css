@@ -1,3 +1,13 @@
+:root {
+  --primary-color-darkest: #1c1b0a;
+  --primary-color-darker: #4f4e3d;
+  --primary-color-dark: #696857;
+  --primary-color: #828170;
+  --primary-color-light: #b5b4a3;
+  --primary-color-lighter: #cfcebd;
+  --primary-color-lightest: #e8e7d6;
+}
+
 html {
   font-size: 1em;
 }

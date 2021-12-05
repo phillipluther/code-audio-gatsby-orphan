@@ -9,7 +9,15 @@ export default function Date({ dateString, className }: {
 }) {
   const date = parseISO(dateString);
   return (
-    <time dateTime={dateString} className={classnames(styles.date, utilStyles.fontSm, className)}>
+    <time
+      dateTime={dateString}
+      className={classnames(
+        styles.date,
+        utilStyles.fontSm,
+        utilStyles.primeDark,
+        className
+      )}
+    >
       {format(date, 'LLLL d, yyyy')}
     </time>
   );

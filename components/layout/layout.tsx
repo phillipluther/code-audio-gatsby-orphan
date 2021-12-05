@@ -122,7 +122,7 @@ export default function Layout({ children, home }: {
       <header className={classnames(
         styles.header,
         utilStyles.contain,
-        utilStyles.padY,
+        utilStyles.pad,
         utilStyles.displayFont
       )}>
         <TitleTag className={styles.title}>
@@ -176,7 +176,7 @@ export default function Layout({ children, home }: {
         )}
       </header>
 
-      <main className={utilStyles.contain}>
+      <main className={classnames(utilStyles.contain, utilStyles.pad)}>
         {children}
       </main>
 

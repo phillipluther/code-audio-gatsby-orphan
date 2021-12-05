@@ -137,6 +137,11 @@
   background: var(--primary-color-darkest);
 }
 
+.footer a {
+  color: var(--color-primary-lightest);
+  font-weight: bold;
+}
+
 .footerNav .navList {
   display: flex;
 }

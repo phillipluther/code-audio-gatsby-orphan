@@ -6,6 +6,10 @@
   flex-wrap: wrap;
 }
 
+.item {
+  margin-bottom: 24px;
+}
+
 @media screen and (min-width: 600px) {
   .list {
     margin-left: -16px;
@@ -15,6 +19,7 @@
   .item {
     width: 50%;
     padding: 0 16px;
+    margin-bottom: 32px;
   }
 }
 

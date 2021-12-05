@@ -45,7 +45,7 @@ export default function Post({ postData }) {
         </header>
 
         <section
-          className={utilStyles.container}
+          className={utilStyles.textify}
           dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
         />
 

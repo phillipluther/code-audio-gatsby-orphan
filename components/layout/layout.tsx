@@ -114,12 +114,17 @@ export default function Layout({ children, home }: {
   const showFullNav = useMediaQuery({ query: '(min-width: 600px)' });
 
   return (
-    <div className={classnames(styles.wrapper, utilStyles.padX)}>
+    <div className={classnames(styles.wrapper)}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <header className={classnames(styles.header, utilStyles.padY, utilStyles.displayFont)}>
+      <header className={classnames(
+        styles.header,
+        utilStyles.contain,
+        utilStyles.padY,
+        utilStyles.displayFont
+      )}>
         <TitleTag className={styles.title}>
           <Link href="/">
             <a className={styles.logoLink}>
@@ -171,19 +176,20 @@ export default function Layout({ children, home }: {
         )}
       </header>
 
-      <main>{children}</main>
-      <Divider />
+      <main className={utilStyles.contain}>
+        {children}
+      </main>
 
-      <footer className={classnames(styles.footer, utilStyles.container)}>
+      <footer className={classnames(styles.footer, utilStyles.pad, utilStyles.primeLighter)}>
         <VisuallyHidden as="h2">Supplemental Information</VisuallyHidden>
 
-        <section>
+        <section className={utilStyles.textify}>
           <VisuallyHidden as="h3">Footer Navigation</VisuallyHidden>
           <NavLinks className={styles.footerNav} />
           <SocialLinks className={styles.footerSocial} />
         </section>
 
-        <section className={utilStyles.fontSm}>
+        <section className={classnames(utilStyles.textify, utilStyles.fontSm)}>
           <VisuallyHidden as="h3">Copyright Information and Disclaimers</VisuallyHidden>
           <p>
             All content on The Dilettante Guru is Copyright &copy;

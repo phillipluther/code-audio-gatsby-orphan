@@ -4,11 +4,10 @@ html {
 
 html,
 body {
-  background: #fffff9;
   padding: 0;
   margin: 0;
   font-family: "Lora", serif;
-  line-height: 1.6;
+  line-height: 1.563;
 }
 
 p {
@@ -20,7 +19,6 @@ p {
 }
 
 a {
-  color: #0070f3;
   text-decoration: none;
 }
 
@@ -33,14 +31,8 @@ img {
   display: block;
 }
 
-@media screen and (min-width: 600px) {
-  html {
-    font-size: 1.1em;
-  }
-}
-
 @media screen and (min-width: 960px) {
   html {
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
 }

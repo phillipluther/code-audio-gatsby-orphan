@@ -1,5 +1,4 @@
 .wrapper {
-  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -131,6 +130,10 @@
 
 .menu .toggle {
   align-self: end;
+}
+
+.footer {
+  background: #1c1b0a;
 }
 
 .footerNav .navList {

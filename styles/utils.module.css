@@ -36,10 +36,54 @@
   padding-bottom: 24px;
 }
 
-.container {
-  max-width: 800px;
+.space {
+  margin: 24px;
+}
+
+.spaceX {
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.spaceY {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.contain,
+.textify {
   margin-left: auto;
   margin-right: auto;
+}
+
+.contain {
+  max-width: 1280px;
+}
+
+.textify {
+  max-width: 800px;
+}
+
+.primeDarkest {
+  color: #1c1b0a;
+}
+.primeDarker {
+  color: #4f4e3d;
+}
+.primeDark {
+  color: #828170;
+}
+.prime {
+  color: #9b9a89;
+}
+.primeLight {
+  color: #b5b4a3;
+}
+.primeLighter {
+  color: #cfcebd;
+}
+.primeLightest {
+  color: #e8e7d6;
 }
 
 @media screen and (min-width: 600px) {
@@ -55,5 +99,19 @@
   .padY {
     padding-top: 32px;
     padding-bottom: 32px;
+  }
+
+  .space {
+    margin: 32px;
+  }
+
+  .spaceX {
+    margin-left: 32px;
+    margin-right: 32px;
+  }
+
+  .spaceY {
+    margin-top: 32px;
+    margin-bottom: 32px;
   }
 }

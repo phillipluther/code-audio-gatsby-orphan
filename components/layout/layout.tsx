@@ -5,7 +5,6 @@ import classnames from 'classnames';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 import { useTransition, animated } from 'react-spring';
 import { FaTwitter, FaYoutube, FaEnvelope } from 'react-icons/fa';
-import { useMediaQuery } from 'react-responsive';
 import VisuallyHidden from '../visually-hidden';
 import Divider from '../divider';
 import Logo from './dilettante-guru-logo.svg';
@@ -67,7 +66,9 @@ const NavLinks = ({ className }: {
 const SocialLinks = ({ className }: {
   className?: string,
 }) => (
-  <ul className={classnames(styles.social, className)}>
+  <ul className={
+    classnames(styles.social, utilStyles.fontLg, utilStyles.marginBottom, className)
+  }>
     {socialLinks.map(({ icon: Icon, href, label }) => (
       <li key={href} className={styles.listItem}>
         <a href={href}>
@@ -99,7 +100,7 @@ export default function Layout({ children, home }: {
   const transitions = useTransition(isMenuOpen, {
     from: {
       opacity: 0,
-      x: 100,
+      x: -100,
     },
     enter: {
       opacity: 1,
@@ -107,11 +108,9 @@ export default function Layout({ children, home }: {
     },
     leave: {
       opacity: 0,
-      x: 100,
+      x: -100,
     },
   });
-
-  const showFullNav = useMediaQuery({ query: '(min-width: 600px)' });
 
   return (
     <div className={classnames(styles.wrapper)}>
@@ -137,43 +136,43 @@ export default function Layout({ children, home }: {
           </Link>
         </TitleTag>
 
-        {showFullNav ? <NavLinks /> : (
-          <>
-            <button
-              className={styles.toggle}
-              type="button"
-              onClick={() => showMenu(true)}
+        <button
+          className={classnames(styles.toggle, styles.open)}
+          type="button"
+          onClick={() => showMenu(true)}
+        >
+          <span className={styles.hamburger} aria-hidden="true" />
+          <VisuallyHidden>
+            {isMenuOpen ? 'Close' : 'Open'}
+            {' '}
+            Navigation Menu
+          </VisuallyHidden>
+        </button>
+
+        {transitions((transitionStyles, item) => item && (
+          <AnimatedDialogOverlay
+            className={styles.overlay}
+            isOpen={isMenuOpen}
+            onDismiss={() => showMenu(false)}
+            style={{ opacity: transitionStyles.opacity }}
+          >
+            <AnimatedDialogContent
+              className={classnames(styles.menu, utilStyles.pad)}
+              aria-label="Navigation Menu"
+              style={{
+                transform: transitionStyles.x.to((val) => `translate3d(${val}%, 0, 0)`)
+              }}
             >
-              <span className={styles.hamburger} aria-hidden="true" />
-              <VisuallyHidden>Open Navigation Menu</VisuallyHidden>
-            </button>
-    
-            {transitions((transitionStyles, item) => item && (
-              <AnimatedDialogOverlay
-                className={styles.overlay}
-                isOpen={isMenuOpen}
-                onDismiss={() => showMenu(false)}
-                style={{ opacity: transitionStyles.opacity }}
-              >
-                <AnimatedDialogContent
-                  className={classnames(styles.menu, utilStyles.pad)}
-                  aria-label="Navigation Menu"
-                  style={{
-                    transform: transitionStyles.x.to((val) => `translate3d(${val}%, 0, 0)`)
-                  }}
-                >
-                  <button className={styles.toggle} onClick={() => showMenu(false)}>
-                    <VisuallyHidden>Close Navigation Menu</VisuallyHidden>
-                    <span className={styles.close} aria-hidden="true" />
-                  </button>
-    
-                  <NavLinks />
-                  <Divider />
-                </AnimatedDialogContent>
-              </AnimatedDialogOverlay>
-            ))}
-          </>
-        )}
+              <button className={styles.toggle} onClick={() => showMenu(false)}>
+                <VisuallyHidden>Close Navigation Menu</VisuallyHidden>
+                <span className={styles.close} aria-hidden="true" />
+              </button>
+
+              <NavLinks className={styles.headerNav} />
+              <SocialLinks className={styles.headerSocial} />
+            </AnimatedDialogContent>
+          </AnimatedDialogOverlay>
+        ))} 
       </header>
 
       <main className={classnames(utilStyles.contain, utilStyles.pad)}>

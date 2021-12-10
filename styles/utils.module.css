@@ -36,17 +36,21 @@
   padding-bottom: 24px;
 }
 
-.space {
+.margin {
   margin: 24px;
 }
 
-.spaceX {
+.marginX {
   margin-left: 24px;
   margin-right: 24px;
 }
 
-.spaceY {
+.marginY {
   margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.marginBottom {
   margin-bottom: 24px;
 }
 
@@ -101,17 +105,21 @@
     padding-bottom: 32px;
   }
 
-  .space {
+  .margin {
     margin: 32px;
   }
 
-  .spaceX {
+  .marginX {
     margin-left: 32px;
     margin-right: 32px;
   }
 
-  .spaceY {
+  .marginY {
     margin-top: 32px;
+    margin-bottom: 32px;
+  }
+
+  .marginBottom {
     margin-bottom: 32px;
   }
 }

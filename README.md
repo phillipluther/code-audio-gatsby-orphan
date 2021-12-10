@@ -1,4 +1,4 @@
-# The Dilettante Guru
+# [THAT] 101
 
 > Deeply exploring shallow things
 

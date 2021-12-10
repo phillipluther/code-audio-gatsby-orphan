@@ -6,12 +6,12 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
 }
 
 .title {
   margin: 0;
   line-height: 0;
+  order: 2;
 }
 
 .logo {
@@ -30,6 +30,10 @@
   background: none;
   border: 0;
   padding: 8px;
+}
+
+.open {
+  margin-right: 12px;
 }
 
 .hamburger,
@@ -78,8 +82,7 @@
 }
 
 .overlay {
-  background: var(--primary-color-lightest);
-  opacity: 0.8;
+  background: #e8e7d6cc; /* --primary-color-lightest w/Alpha */
   position: fixed;
   width: 100%;
   height: 100%;
@@ -91,7 +94,8 @@
 .social {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin-top: 0;
+  margin-left: 0;
 }
 
 .social {
@@ -109,12 +113,13 @@
   text-align: center;
   width: 48px;
   color: inherit;
+  margin: 0 8px;
 }
 
 .menu {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   width: 80%;
   max-width: 300px;
   height: 100%;
@@ -125,10 +130,6 @@
   box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
 }
 
-.menu a {
-  color: #fff;
-}
-
 .menu .toggle {
   align-self: end;
 }
@@ -137,8 +138,9 @@
   background: var(--primary-color-darkest);
 }
 
+.menu a,
 .footer a {
-  color: var(--color-primary-lightest);
+  color: var(--primary-color-lightest);
   font-weight: bold;
 }
 
@@ -147,26 +149,16 @@
 }
 
 .footerNav .navList,
-.footerSocial {
+.social {
   justify-content: center;
-  margin-bottom: 8px;
 }
 
 .footerNav a {
   padding: 0 16px;
 }
 
-.footerSocial a {
-  font-size: 1.563rem;
-}
-
-@media screen and (min-width: 600px) {
-  .navList {
-    display: flex;
-  }
-
-  .navList a {
-    padding: 0 12px;
-    color: inherit;
-  }
+.headerSocial {
+  border-top: 1px solid var(--primary-color-darker);
+  margin-top: 16px;
+  padding-top: 32px;
 }

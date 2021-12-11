@@ -1,37 +1,21 @@
 {
-  "name": "that-101",
-  "description": "Shallowly exploring deep things",
-  "author": "Phillip Luther <dev@phillipluther.com",
+  "name": "that-101-blog",
   "version": "0.1.0",
   "private": true,
+  "description": "Simple explanations of complicated things",
+  "author": "Phillip Luther",
+  "keywords": [
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
   },
   "dependencies": {
-    "@fontsource/lora": "^4.5.1",
-    "@reach/dialog": "^0.16.2",
-    "@svgr/webpack": "^5.5.0",
-    "@types/react-transition-group": "^4.4.4",
-    "classnames": "^2.3.1",
-    "date-fns": "^2.25.0",
-    "gray-matter": "^4.0.3",
-    "next": "^11.0.0",
-    "next-react-svg": "^1.1.3",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-icons": "^4.3.1",
-    "react-responsive": "^9.0.0-beta.4",
-    "react-spring": "^9.3.0",
-    "remark": "^14.0.1",
-    "remark-html": "^15.0.0"
-  },
-  "devDependencies": {
-    "@types/react": "^17.0.33",
-    "eslint": "7.32.0",
-    "eslint-config-next": "12.0.3",
-    "typescript": "^4.4.4"
+    "gatsby": "^4.3.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   }
 }

@@ -4,8 +4,7 @@
   "private": true,
   "description": "Simple explanations of complicated things",
   "author": "Phillip Luther",
-  "keywords": [
-  ],
+  "keywords": [],
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
@@ -14,8 +13,11 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@reach/visually-hidden": "^0.16.0",
+    "classnames": "^2.3.1",
     "gatsby": "^4.3.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-icons": "^4.3.1"
   }
 }

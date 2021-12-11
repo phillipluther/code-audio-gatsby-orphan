@@ -1,0 +1,5 @@
+.header {
+  background: var(--color-accent-lighter);
+  color: var(--color-core-darkest);
+  padding: 16px;
+}

@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import VisuallyHidden from '@reach/visually-hidden';
 import PrimaryNav from '../primary-nav';
 import Social from '../social';
+import Logo from './that-101-logo-badge.inline.svg';
 import * as styles from './layout.module.css';
 import '../global-styles.css';
 
@@ -16,7 +17,10 @@ const Layout = ({
     <>
       <header id="header" className={styles.header}>
         <TitleTag>
-          <Link to="/">Home</Link>
+          <Link to="/">
+            <Logo className={styles.logo} aria-hidden="true" alt="" />
+            <VisuallyHidden>That 101 | Home</VisuallyHidden>
+          </Link>
         </TitleTag>
 
         <PrimaryNav className={styles.headerNav} />

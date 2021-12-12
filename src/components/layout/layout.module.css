@@ -3,3 +3,9 @@
   color: var(--color-core-darkest);
   padding: 16px;
 }
+
+.logo {
+  height: 64px;
+  width: 64px;
+  margin: 0;
+}

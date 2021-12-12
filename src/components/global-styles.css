@@ -14,6 +14,22 @@
   --color-accent-dark: #5cac6c;
   --color-accent-darker: #358545;
   --color-accent-darkest: #0f5f1f;
+
+  /* 1.333 scaling starting at 1em browser default (usually 16px) */
+  --font-size-0: 0.75rem;
+  --font-size-1: 1rem;
+  --font-size-2: 1.333rem;
+  --font-size-3: 1.777rem;
+  --font-size-4: 2.369rem;
+  --font-size-5: 3.157rem;
+  --font-size-6: 4.209rem;
+
+  /* 1.333 scaling based on 24px as medium */
+  --space-xs: 18px;
+  --space-sm: 24px;
+  --space-md: 32px;
+  --space-lg: 43px;
+  --space-xl: 57px;
 }
 
 html,
@@ -24,4 +40,8 @@ body {
 
 html {
   font-size: 1em;
+}
+
+* {
+  box-sizing: border-box;
 }

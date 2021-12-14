@@ -1,7 +1,9 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://oneoh.one',
+    url: 'https://oneoh.one',
     title: '[That] 101',
+    description: 'Complicated things explained simply',
+    author: 'Phillip Luther',
   },
   plugins: [
     'gatsby-plugin-image',

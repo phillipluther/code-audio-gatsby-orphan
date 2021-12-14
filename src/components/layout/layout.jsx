@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import VisuallyHidden from '@reach/visually-hidden';
 import PrimaryNav from '../primary-nav';
 import Social from '../social';
@@ -13,6 +13,16 @@ const Layout = ({
   isHome = false
 }) => {
   const TitleTag = isHome ? 'h1' : 'p';
+  const { site: { siteMetadata: metadata }} = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          description
+          title
+        }
+      }
+    }
+  `);
 
   return (
     <>
@@ -21,9 +31,11 @@ const Layout = ({
           <TitleTag>
             <Link to="/">
               <Logo className={styles.logo} aria-hidden="true" alt="" />
-              <VisuallyHidden>That 101 | Home</VisuallyHidden>
+              <VisuallyHidden>{metadata.title}</VisuallyHidden>
             </Link>
           </TitleTag>
+
+          <p className={styles.description}>{metadata.description}</p>
 
           <PrimaryNav className={styles.headerNav} />
           <Social className={styles.headerSocial} />

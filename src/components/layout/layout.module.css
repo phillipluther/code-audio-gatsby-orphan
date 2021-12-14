@@ -8,3 +8,8 @@
   width: 64px;
   margin: 0;
 }
+
+.footer {
+  color: var(--color-core-light);
+  background: var(--color-core-darkest);
+}

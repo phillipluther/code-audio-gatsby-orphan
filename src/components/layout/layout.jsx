@@ -32,14 +32,14 @@ const Layout = ({
 
       <main>{children}</main>
 
-      <footer id="footer">
+      <footer id="footer" className={styles.footer}>
         <VisuallyHidden as="h2">Page Footer</VisuallyHidden>
 
-        <section id="footerNav">
+        <Container as="section" id="footerNav">
           <VisuallyHidden as="h3">Footer Navigation</VisuallyHidden>
           <PrimaryNav className={styles.footerNav} />
           <Social className={styles.footerSocial} />
-        </section>
+        </Container>
       </footer>
     </>
   );

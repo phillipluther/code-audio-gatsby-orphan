@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import classnames from 'classnames';
 import VisuallyHidden from '@reach/visually-hidden';
 import Date from '../date';
+import TagList from '../tag-list';
 import * as styles from './post-list.module.css';
 
 const PostList = ({ className, posts, title = 'All Blog Posts' }) => {
@@ -31,12 +32,9 @@ const PostList = ({ className, posts, title = 'All Blog Posts' }) => {
                   <VisuallyHidden>{` | ${frontmatter.title}`}</VisuallyHidden>
                 </Link>
 
-                <p>Tags</p>
-                <ul>
-                  {frontmatter.tags.map((tagName) => (
-                    <li key={tagName}>{tagName}</li>
-                  ))}
-                </ul>
+                <section aria-label="Related Topics">
+                  <TagList tags={frontmatter.tags} />
+                </section>
               </footer>
             </article>
           </li>

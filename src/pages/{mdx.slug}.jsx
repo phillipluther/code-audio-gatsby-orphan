@@ -2,21 +2,32 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout';
+import TagList from '../components/tag-list';
+import Date from '../components/date';
 
 const BlogPost = ({ data }) => {
-  console.log('DATA', data);
+  const {
+    title,
+    description,
+    tags,
+    date,
+  } = data.mdx.frontmatter;
 
   return (
     <Layout>
       <article>
         <header>
-          <h1>{data.mdx.frontmatter.title}</h1>
+          <h1>{title}</h1>
+          <Date dateString={date} />
+          <p>{description}</p>
         </header>
 
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
 
         <footer>
-          Footer!
+          <section aria-label="More Like This">
+            <TagList tags={tags} />
+          </section>
         </footer>
       </article>
     </Layout>

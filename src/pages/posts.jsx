@@ -1,16 +1,15 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
+import PostList from '../components/post-list';
 
 const PostsPage = ({ data }) => {
   return (
     <Layout>
       <h1>All Blog Posts</h1>
-      <ul>
-        {data.allFile.nodes.map(({ name }) => (
-          <li key={name}>{name}</li>
-        ))}
-      </ul>
+      <hr />
+
+      <PostList posts={data.allMdx.nodes} />
     </Layout>
   );
 };
@@ -18,10 +17,17 @@ const PostsPage = ({ data }) => {
 export default PostsPage;
 
 export const query = graphql`
-  query {
-    allFile {
+  query MyQuery {
+    allMdx(sort: {fields: frontmatter___date, order: DESC}) {
       nodes {
-        name
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          description
+          tags
+          title
+        }
+        id
+        body
       }
     }
   }

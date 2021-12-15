@@ -27,10 +27,10 @@ const Social = ({ className, ...props }) => (
   <ul className={classnames(styles.list, className)}>
     {socialLinks.map(({ href, label, icon: Icon }) => (
       <li key={href} className={styles.item}>
-        <Link to={href} className={styles.link}>
+        <a href={href} className={styles.link}>
           <Icon aria-hidden="true" />
           <VisuallyHidden>{label}</VisuallyHidden>
-        </Link>
+        </a>
       </li>
     ))}
   </ul>

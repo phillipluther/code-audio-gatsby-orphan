@@ -9,6 +9,10 @@ export const navLinks = [
     label: 'Home',
   },
   {
+    href: '/posts',
+    label: 'Blog Posts',
+  },
+  {
     href: '/about',
     label: 'About',
   },

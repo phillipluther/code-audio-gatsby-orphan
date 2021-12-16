@@ -1,33 +1,45 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import classnames from 'classnames';
 import VisuallyHidden from '@reach/visually-hidden';
 import Date from '../date';
 import TagList from '../tag-list';
 import * as styles from './post-list.module.css';
 
-const PostList = ({ className, posts, title = 'All Blog Posts' }) => {
-  
-  return (
-    <>
-      <VisuallyHidden as="h2">{title}</VisuallyHidden>
+const PostList = ({ className, posts, title = 'All Blog Posts' }) => (
+  <>
+    <VisuallyHidden as="h2">{title}</VisuallyHidden>
 
-      <ul className={classnames(styles.list, className)}>
-        {posts.map(({ frontmatter, id, slug }) => (
+    <ul className={classnames(styles.list, className)}>
+      {posts.map(({ frontmatter, id, slug }) => {
+        const postUrl = `/${slug}`;
+
+        return (
           <li className={styles.item} key={id}>
             <article className={styles.summary}>
               <header className={styles.header}>
-                <h3 className={styles.title}>{frontmatter.title}</h3>
+                <h3 className={styles.title}>
+                  <Link to={postUrl}>{frontmatter.title}</Link>
+                </h3>
                 <Date dateString={frontmatter.date} />
-                {/* <time className={styles.date} dateTime={new Date(frontmatter.date).getTime()}>
-                  {frontmatter.date}
-                </time> */}
+
+                {frontmatter.cover && (
+                  <Link to={postUrl}>
+                    <GatsbyImage
+                      tabIndex={-1}
+                      image={getImage(frontmatter.cover)}
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </Link>
+                )}
               </header>
 
               <p className={styles.description}>{frontmatter.description}</p>
 
               <footer className={styles.footer}>
-                <Link to={`/${slug}`} className={styles.link}>
+                <Link to={postUrl} className={styles.link}>
                   Read More
                   <VisuallyHidden>{` | ${frontmatter.title}`}</VisuallyHidden>
                 </Link>
@@ -38,10 +50,10 @@ const PostList = ({ className, posts, title = 'All Blog Posts' }) => {
               </footer>
             </article>
           </li>
-        ))}
-      </ul>
-    </>
-  );
-};
+        );
+      })}
+    </ul>
+  </>
+);
 
 export default PostList;

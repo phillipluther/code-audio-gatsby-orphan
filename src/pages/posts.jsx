@@ -21,6 +21,11 @@ export const query = graphql`
     allMdx(sort: {fields: frontmatter___date, order: DESC}) {
       nodes {
         frontmatter {
+          cover {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }  
           date
           description
           tags

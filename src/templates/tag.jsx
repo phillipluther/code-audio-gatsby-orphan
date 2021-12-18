@@ -1,16 +1,15 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
-// import PostList from '../components/post-list';
+import PostList from '../components/post-list';
 
-const PostsPage = (props) => {
-  console.log('props', props);
+const PostsPage = ({ data, pageContext }) => {
   return (
     <Layout>
-      <h1>Posts Tagged as ...</h1>
+      <h1>Posts Tagged as "{pageContext.tag}"</h1>
       <hr />
 
-      {/* <PostList posts={data.allMdx.nodes} /> */}
+      <PostList posts={data.allMdx.nodes} />
     </Layout>
   );
 };

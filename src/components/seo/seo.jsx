@@ -1,38 +1,67 @@
 import * as React from 'react';
 import Helmet from 'react-helmet';
+import { useLocation } from "@reach/router"
+import { useStaticQuery, graphql } from "gatsby"
 
-const Head = ({
+const Seo = ({
   title,
   description,
   image = './that-101-default-social-card.png',
-  url,
+  article,
   keywords,
   children,
-}) => (
-  <Helmet title={title} titleTemplate="%s · [That] 101">
-    <meta name="description" content={description} />
-    <meta name="image" content={image} />
+}) => {
+  const { pathname } = useLocation();
+  const { site } = useStaticQuery(query);
+  const {
+    siteName,
+    siteDescription,
+    url,
+    author,
+  } = site.siteMetadata;
 
-    {keywords && <meta name="keywords" content={keywords.join(', ')} />}
+  const seo = {
+    title: title || siteName,
+    description: description || siteDescription,
+    url: `${url}${pathname}`,
+  };
 
-    {url && <meta property="og:url" content={url} />}
-    {(article ? true : null) && <meta property="og:type" content="article" />}
-    {title && <meta property="og:title" content={title} />}
-    {description && (
-      <meta property="og:description" content={description} />
-    )}
-    {image && <meta property="og:image" content={image} />}
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:creator" content="that101thing" />
+  return (
+    <Helmet title={seo.title} titleTemplate={`%s · ${siteName}`}>
+      <meta name="description" content={seo.description} />
+      <meta name="image" content={image} />
 
-    {title && <meta name="twitter:title" content={title} />}
-    {description && (
-      <meta name="twitter:description" content={description} />
-    )}
-    {image && <meta name="twitter:image" content={image} />}
+      {keywords && <meta name="keywords" content={keywords.join(', ')} />}
 
-    {children}
-  </Helmet>
-);
+      <meta property="og:url" content={seo.url} />
+      <meta property="og:title" content={seo.title} />
+      <meta property="og:description" content={seo.description} />
+      {(article ? true : null) && <meta property="og:type" content="article" />}
+      {image && <meta property="og:image" content={image} />}
 
-export default Head;
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:creator" content="that101thing" />
+      <meta name="twitter:title" content={seo.title} />
+      <meta name="twitter:description" content={seo.description} />
+      {image && <meta name="twitter:image" content={image} />}
+
+      <meta name="author" content={author} />
+      {children}
+    </Helmet>
+  );
+};
+
+export default Seo;
+
+const query = graphql`
+  query SEO {
+    site {
+      siteMetadata {
+        siteName: name
+        siteDescription: description
+        url
+        author
+      }
+    }
+  }
+`;

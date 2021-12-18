@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classnames from 'classnames';
-import { Link } from 'gatsby';
 import { FaTwitter, FaYoutube, FaEnvelope } from 'react-icons/fa';
 import VisuallyHidden from '@reach/visually-hidden';
 import * as styles from './social.module.css';

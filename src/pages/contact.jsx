@@ -1,12 +1,12 @@
 import * as React from 'react';
+import Layout from '../components/layout';
 
 const ContactPage = () => {
   return (
-    <main>
-      <title>Contact Info</title>
+    <Layout>
       <h1>Contact Info</h1>
       <p>This'll be the "contact" page</p>
-    </main>
+    </Layout>
   );
 };
 

@@ -1,11 +1,18 @@
 import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 import slugify from 'slugify';
+import Seo from '../../components/seo';
 import Layout from '../../components/layout';
 
 const TagsPage = ({ data }) => (
   <Layout>
-    <h1>Browse Posts by Category Tags</h1>
+    <Seo
+      title="Browse Blog Posts by Tag"
+      description="Curious about basic music theory? Need an introduction to blockchain? [That] 101 covers a slew of topics, organized by category tags."
+      showAuthor={false}
+    />
+
+    <h1>Browse Blog Posts by Tag</h1>
     <hr />
 
     <ul>

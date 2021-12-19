@@ -6,10 +6,11 @@ import { useStaticQuery, graphql } from "gatsby"
 const Seo = ({
   title,
   description,
-  image = './that-101-default-social-card.png',
+  image = '/images/that-101-default-social-card.png',
   article,
   keywords,
   children,
+  showAuthor = true,
 }) => {
   const { pathname } = useLocation();
   const { site } = useStaticQuery(query);
@@ -45,7 +46,7 @@ const Seo = ({
       <meta name="twitter:description" content={seo.description} />
       {image && <meta name="twitter:image" content={image} />}
 
-      <meta name="author" content={author} />
+      {showAuthor && <meta name="author" content={author} />}
       {children}
     </Helmet>
   );

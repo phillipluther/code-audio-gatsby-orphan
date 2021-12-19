@@ -6,6 +6,7 @@ import VisuallyHidden from '@reach/visually-hidden';
 import Layout from '../components/layout';
 import TagList from '../components/tag-list';
 import Date from '../components/date';
+import Seo from '../components/seo';
 
 const BlogPost = ({ data }) => {
   const {
@@ -23,6 +24,15 @@ const BlogPost = ({ data }) => {
 
   return (
     <Layout>
+      <Seo
+        title={title}
+        description={description}
+        keywords={tags}
+        /* TODO: Revisit sizing on these? */
+        image={image.images.fallback.src}
+        article
+      />
+
       <article>
         <header>
           <h1>{title}</h1>

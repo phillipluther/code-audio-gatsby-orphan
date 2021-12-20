@@ -3,10 +3,54 @@
   color: var(--color-core-darkest);
 }
 
-.logo {
-  height: 64px;
-  width: 64px;
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.branding {
   margin: 0;
+}
+
+.logo {
+  height: var(--space-lg);
+  width: var(--space-lg);
+  margin: 0;
+}
+
+.open,
+.close {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: none;
+  color: inherit;
+}
+
+.toggle,
+.toggle::after,
+.toggle::before {
+  content: "";
+  position: relative;
+  display: block;
+  height: 0;
+  border-top: 5px solid var(--color-core-darkest);
+}
+
+.toggle {
+  width: 50%;
+  margin: auto;
+}
+
+.toggle::before {
+  top: -12px;
+}
+
+.toggle::after {
+  bottom: 3px;
 }
 
 .footer {

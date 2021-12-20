@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import VisuallyHidden from '@reach/visually-hidden';
+import { DialogOverlay, DialogContent } from '@reach/dialog';
 import PrimaryNav from '../primary-nav';
 import Social from '../social';
 import Container from '../container';
 import Logo from './that-101-logo-badge.inline.svg';
 import * as styles from './layout.module.css';
 import '../global-styles.css';
+import '@reach/dialog/styles.css';
 
 const Layout = ({
   children,
@@ -24,11 +26,13 @@ const Layout = ({
     }
   `);
 
+  const [showMenu, openMenu] = React.useState(false);
+
   return (
     <>
       <header id="header" className={styles.header}>
-        <Container large>
-          <TitleTag>
+        <Container className={styles.headerContent} large>
+          <TitleTag className={styles.branding}>
             <Link to="/">
               <Logo className={styles.logo} aria-hidden="true" alt="" />
               <VisuallyHidden>{metadata.title}</VisuallyHidden>
@@ -37,8 +41,40 @@ const Layout = ({
 
           <p className={styles.description}>{metadata.description}</p>
 
-          <PrimaryNav className={styles.headerNav} />
-          <Social className={styles.headerSocial} />
+          <button
+            type="button"
+            className={styles.open}
+            aria-controls="navMenu"
+            aria-expanded={showMenu}
+            onClick={() => openMenu(true)}
+          >
+            <span className={styles.toggle} />
+            <VisuallyHidden>Open Navigation Menu</VisuallyHidden>
+          </button>
+
+          {showMenu && (
+            <DialogOverlay className={styles.overlay}>
+              <DialogContent
+                aria-label="Navigation Menu"
+                className={styles.dialog}
+                id="navMenu"
+              >
+                <button
+                  type="button"
+                  className={styles.close}
+                  aria-controls="navMenu"
+                  aria-expanded={showMenu}
+                  onClick={() => openMenu(false)}
+                >
+                  X
+                  <VisuallyHidden>Close Navigation Menu</VisuallyHidden>
+                </button>
+
+                <PrimaryNav className={styles.headerNav} />
+                <Social className={styles.headerSocial} />
+              </DialogContent>
+            </DialogOverlay>
+          )}
         </Container>
       </header>
 

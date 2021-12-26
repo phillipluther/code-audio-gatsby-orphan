@@ -13,8 +13,6 @@
 }
 
 .logo {
-  height: var(--space-lg);
-  width: var(--space-lg);
   margin: 0;
 }
 

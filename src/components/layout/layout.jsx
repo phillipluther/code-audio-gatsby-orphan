@@ -33,7 +33,7 @@ const Layout = ({
       <header id="header" className={styles.header}>
         <Container className={styles.headerContent} large>
           <TitleTag className={styles.branding}>
-            <Link to="/">
+            <Link to="/" className={styles.logoLink}>
               <Logo className={styles.logo} aria-hidden="true" alt="" />
               <VisuallyHidden>{metadata.title}</VisuallyHidden>
             </Link>

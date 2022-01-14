@@ -5,11 +5,14 @@ import PostList from '../components/post-list';
 import Seo from '../components/seo';
 
 const PostsPage = ({ data }) => {
+  const { name: siteName } = data.site.siteMetadata;
   return (
     <Layout>
       <Seo
         title="All Blog Posts"
-        description="Featuring the latest posts from Code/Audio and covering a wide range of topics"
+        description={
+          `Featuring the latest posts from ${siteName} and covering a wide range of topics`
+        }
       />
       <h1>All Blog Posts</h1>
       <hr />
@@ -23,6 +26,11 @@ export default PostsPage;
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        name
+      }
+    }
     allMdx(sort: {fields: frontmatter___date, order: DESC}) {
       nodes {
         frontmatter {

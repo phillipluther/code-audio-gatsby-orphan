@@ -2,8 +2,30 @@ module.exports = {
   siteMetadata: {
     url: 'https://code.audio',
     name: 'Code/Audio',
-    description: 'Code/Audio',
+    description: 'Audio and Software Engineering on the Web',
     author: 'Phillip Luther',
+    social: [
+      {
+        name: 'twitter',
+        label: '@phillipluther on Twitter',
+        link: 'https://twitter.com/phillipluther',
+      },
+      {
+        name: 'youtube',
+        label: 'Code/Audio YouTube Channel',
+        link: 'https://youtube.com/phillipluther',
+      },
+      {
+        name: 'github',
+        label: 'Code/Audio repos on GitHub',
+        link: 'https://github.com/phillipluther',
+      },
+      {
+        name: 'email',
+        label: 'Email hello@code.audio',
+        link: 'mailto:hello@code.audio',
+      },
+    ],
   },
   plugins: [
     'gatsby-plugin-image',

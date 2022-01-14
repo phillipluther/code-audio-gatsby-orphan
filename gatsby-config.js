@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    url: 'https://oneoh.one',
-    name: '[That] 101',
-    description: 'Complicated things explained simply',
+    url: 'https://code.audio',
+    name: 'Code/Audio',
+    description: 'Code/Audio',
     author: 'Phillip Luther',
   },
   plugins: [
@@ -41,13 +41,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: '[That] 101',
-        short_name: '[That] 101',
+        name: 'Code/Audio',
+        short_name: 'Code/Audio',
         start_url: '/',
-        background_color: '#f8fefb',
-        theme_color: '#82d292',
+        background_color: '#fff',
+        theme_color: '#011223',
         display: 'standalone',
-        icon: 'src/that-101-favicon.png',
+        icon: 'src/code-audio-badge.png',
       },
     },
   ],

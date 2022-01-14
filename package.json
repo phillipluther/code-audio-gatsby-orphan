@@ -1,9 +1,9 @@
 {
-  "name": "that-101-blog",
+  "name": "code-audio",
   "version": "0.1.0",
   "private": true,
-  "description": "Simple explanations of complicated things",
-  "author": "Phillip Luther",
+  "description": "code.audio blog",
+  "author": "Phillip Luther <dev@phillipluther.com>",
   "keywords": [],
   "scripts": {
     "develop": "gatsby develop",

@@ -6,18 +6,18 @@ import * as styles from './social.module.css';
 
 export const socialLinks = [
   {
-    href: 'https://twitter.com/that101thing',
-    label: '@That101Thing on Twitter',
+    href: 'https://twitter.com/phillipluther',
+    label: '@phillipluther on Twitter',
     icon: FaTwitter,
   },
   {
     href: 'https://youtube.com/phillipluther',
-    label: 'That 101 YouTube Channel',
+    label: 'Code/Audio YouTube Channel',
     icon: FaYoutube,
   },
   {
-    href: 'mailto:hello@oneoh.one',
-    label: 'Email hello@oneoh.one',
+    href: 'mailto:hello@code.audio',
+    label: 'Email hello@code.audio',
     icon: FaEnvelope,
   },
 ];

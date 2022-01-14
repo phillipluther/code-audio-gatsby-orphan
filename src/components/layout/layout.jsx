@@ -5,7 +5,7 @@ import { DialogOverlay, DialogContent } from '@reach/dialog';
 import PrimaryNav from '../primary-nav';
 import Social from '../social';
 import Container from '../container';
-import Logo from './that-101-logo.inline.svg';
+import Logo from './code-audio-logo-sticker-reverse.inline.svg';
 import * as styles from './layout.module.css';
 import '../global-styles.css';
 import '@reach/dialog/styles.css';

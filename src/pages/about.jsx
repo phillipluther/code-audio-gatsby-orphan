@@ -11,7 +11,7 @@ const AboutPage = () => {
         description="Learn more about this site and its author"
       />
 
-      <h1>About That 101</h1>
+      <h1>About Code/Audio</h1>
       <p>This'll be the "about" page</p>
     </Layout>
   );

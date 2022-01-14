@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from "gatsby"
 const Seo = ({
   title,
   description,
-  image = '/images/that-101-default-social-card.png',
+  image = '/images/code-audio-default-social-card.png',
   article,
   keywords,
   children,
@@ -41,7 +41,7 @@ const Seo = ({
       {image && <meta property="og:image" content={image} />}
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content="that101thing" />
+      <meta name="twitter:creator" content="phillipluther" />
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:description" content={seo.description} />
       {image && <meta name="twitter:image" content={image} />}

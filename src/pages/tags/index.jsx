@@ -8,7 +8,7 @@ const TagsPage = ({ data }) => (
   <Layout>
     <Seo
       title="Browse Blog Posts by Tag"
-      description="Curious about basic music theory? Need an introduction to blockchain? [That] 101 covers a slew of topics, organized by category tags."
+      description="Code/Audio covers a slew of topics, organized by category tags."
       showAuthor={false}
     />
 

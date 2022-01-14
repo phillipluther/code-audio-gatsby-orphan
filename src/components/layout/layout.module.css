@@ -1,6 +1,6 @@
 .header {
-  background: var(--color-accent-lighter);
-  color: var(--color-core-darkest);
+  background: var(--color-core-darkest);
+  color: var(--color-core-lightest);
 }
 
 .headerContent {
@@ -35,7 +35,7 @@
   position: relative;
   display: block;
   height: 0;
-  border-top: 5px solid var(--color-core-darkest);
+  border-top: 5px solid var(--color-core-lightest);
 }
 
 .toggle {

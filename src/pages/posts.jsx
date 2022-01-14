@@ -9,7 +9,7 @@ const PostsPage = ({ data }) => {
     <Layout>
       <Seo
         title="All Blog Posts"
-        description="Featuring the latest posts from [That] 101 and covering a wide range of topics"
+        description="Featuring the latest posts from Code/Audio and covering a wide range of topics"
       />
       <h1>All Blog Posts</h1>
       <hr />

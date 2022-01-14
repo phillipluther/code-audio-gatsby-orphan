@@ -7,7 +7,7 @@ const ContactPage = () => {
     <Layout>
       <Seo
         title="Contact Info"
-        description="Need to get in touch with Phil or [That] 101? This is the right place!"
+        description="Got comments, questions, or feedback for Code/Audio? This is the right place!"
       />
 
       <h1>Contact Info</h1>

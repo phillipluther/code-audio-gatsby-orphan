@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import VisuallyHidden from '@reach/visually-hidden';
-import { DialogOverlay, DialogContent } from '@reach/dialog';
 import PrimaryNav from '../primary-nav';
 import Social from '../social';
 import Container from '../container';
@@ -26,8 +25,6 @@ const Layout = ({
     }
   `);
 
-  const [showMenu, openMenu] = React.useState(false);
-
   return (
     <>
       <header id="header" className={styles.header}>
@@ -39,42 +36,7 @@ const Layout = ({
             </Link>
           </TitleTag>
 
-          <p className={styles.description}>{metadata.description}</p>
-
-          <button
-            type="button"
-            className={styles.open}
-            aria-controls="navMenu"
-            aria-expanded={showMenu}
-            onClick={() => openMenu(true)}
-          >
-            <span className={styles.toggle} />
-            <VisuallyHidden>Open Navigation Menu</VisuallyHidden>
-          </button>
-
-          {showMenu && (
-            <DialogOverlay className={styles.overlay}>
-              <DialogContent
-                aria-label="Navigation Menu"
-                className={styles.dialog}
-                id="navMenu"
-              >
-                <button
-                  type="button"
-                  className={styles.close}
-                  aria-controls="navMenu"
-                  aria-expanded={showMenu}
-                  onClick={() => openMenu(false)}
-                >
-                  X
-                  <VisuallyHidden>Close Navigation Menu</VisuallyHidden>
-                </button>
-
-                <PrimaryNav className={styles.headerNav} />
-                <Social className={styles.headerSocial} />
-              </DialogContent>
-            </DialogOverlay>
-          )}
+          <PrimaryNav className={styles.headerNav} home={false} />
         </Container>
       </header>
 

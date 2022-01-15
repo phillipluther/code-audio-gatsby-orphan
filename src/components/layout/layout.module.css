@@ -6,6 +6,8 @@
 .headerContent {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  font-family: var(--display-font);
 }
 
 .branding {
@@ -13,9 +15,8 @@
 }
 
 .logo {
-  margin: 0;
   width: auto;
-  height: 48px;
+  height: 32px;
 }
 
 .logoLink {
@@ -23,51 +24,47 @@
   line-height: 0;
 }
 
-.open,
-.close {
-  display: block;
-  width: var(--space-xl);
-  height: var(--space-xl);
-  border: 0;
-  padding: 0;
-  margin: 0;
-  background: none;
-  color: inherit;
-}
-
-.toggle,
-.toggle::after,
-.toggle::before {
-  content: "";
-  position: relative;
-  display: block;
-  height: 0;
-  border-top: 4px solid var(--color-core-lightest);
-}
-
-.toggle {
-  width: 40%;
-  margin: auto;
-}
-
-.toggle::before {
-  top: -11px;
-}
-
-.toggle::after {
-  bottom: 1px;
-}
-
-.open {
-  background: var(--color-accent);
-  border-radius: 50%;
-  position: fixed;
-  bottom: var(--space-xs);
-  right: var(--space-xs);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
 .footer {
   color: var(--color-core-light);
   background: var(--color-core-darkest);
+}
+
+.headerNav ul,
+.footerNav ul,
+.footerSocial {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.headerNav ul {
+  display: flex;
+}
+
+/* increase our tap-target size */
+.logoLink,
+.headerNav a {
+  margin: calc(var(--space-xs) * -1) 0;
+  padding: var(--space-xs) 0;
+}
+
+.headerNav a {
+  text-decoration: none;
+  margin-left: var(--space-xs);
+}
+
+.headerNav a:hover,
+.headerNav a:focus {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 600px) {
+  .logo {
+    height: 48px;
+  }
+
+  .logoLink {
+    margin: 0;
+    padding: 0;
+  }
 }

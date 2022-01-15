@@ -9,21 +9,16 @@ const DisplayFont = ({
   size = 'md',
   loose = false,
   ...props
-}) => {
-  const lineHeightClass = loose ? styles.loose : styles.tight;
-  const sizeClass = styles[size];
-
-  return (
-    <Tag
-      className={classnames(styles.base, styles[size], {
-        [styles.loose]: loose === true,
-        [styles.tight]: loose === false,
-      }, className)}
-      {...props}
-    >
-      {children}
-    </Tag>
-  );
-};
+}) => (
+  <Tag
+    className={classnames(styles.base, styles[size], {
+      [styles.loose]: loose === true,
+      [styles.tight]: loose === false,
+    }, className)}
+    {...props}
+  >
+    {children}
+  </Tag>
+);
 
 export default DisplayFont;

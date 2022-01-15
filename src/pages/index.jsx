@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
-import Heading from '../components/heading';
+import DisplayFont from '../components/display-font';
 import Seo from '../components/seo';
 
 const IndexPage = ({ data }) => {
@@ -11,7 +11,7 @@ const IndexPage = ({ data }) => {
     <Layout isHome>
       <Seo title="Home" />
 
-      <Heading>{siteMetadata.siteName}</Heading>
+      <DisplayFont as="h2">{siteMetadata.siteName}</DisplayFont>
       <p>Home Page</p>
     </Layout>
   );

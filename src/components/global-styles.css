@@ -7,13 +7,13 @@
   --color-core-darker: #323232;
   --color-core-darkest: #090909;
 
-  --color-accent-lightest: #f4ffff;
-  --color-accent-lighter: #ceffde;
-  --color-accent-light: #a8f8b8;
-  --color-accent: #82d292;
-  --color-accent-dark: #5cac6c;
-  --color-accent-darker: #358545;
-  --color-accent-darkest: #0f5f1f;
+  --color-accent-lightest: #a7ffff;
+  --color-accent-lighter: #74d1ff;
+  --color-accent-light: #419edb;
+  --color-accent: #0e6ba8;
+  --color-accent-dark: #004582;
+  --color-accent-darker: #001f5c;
+  --color-accent-darkest: #000035;
 
   /* 1.333 scaling starting at 1em browser default (usually 16px) */
   --font-size-0: 0.75rem;

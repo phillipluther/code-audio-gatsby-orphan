@@ -59,11 +59,12 @@
 }
 
 .open {
-  background: var(--color-accent-darker);
+  background: var(--color-accent);
   border-radius: 50%;
   position: fixed;
   bottom: var(--space-xs);
   right: var(--space-xs);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .footer {

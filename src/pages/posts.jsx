@@ -2,6 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import PostList from '../components/post-list';
+import PageTitle from '../components/page-title';
 import Seo from '../components/seo';
 
 const PostsPage = ({ data }) => {
@@ -14,7 +15,7 @@ const PostsPage = ({ data }) => {
           `Featuring the latest posts from ${siteName} and covering a wide range of topics`
         }
       />
-      <h1>All Blog Posts</h1>
+      <PageTitle as="h1">All Blog Posts</PageTitle>
       <hr />
 
       <PostList posts={data.allMdx.nodes} />

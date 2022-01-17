@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
+import PageTitle from '../components/page-title';
 import Seo from '../components/seo';
 
 const ContactPage = ({ data }) => {
@@ -14,7 +15,7 @@ const ContactPage = ({ data }) => {
         }
       />
 
-      <h1>Contact Info</h1>
+      <PageTitle>Contact Info</PageTitle>
       <p>This'll be the "contact" page</p>
     </Layout>
   );

@@ -23,6 +23,9 @@
   --font-size-4: 2.369rem;
   --font-size-5: 3.157rem;
   --font-size-6: 4.209rem;
+  --font-size-7: 5.61rem;
+  --font-size-8: 7.478rem;
+  --font-size-9: 9.969rem;
 
   /* 1.333 scaling based on 24px as medium */
   --space-xs: 18px;

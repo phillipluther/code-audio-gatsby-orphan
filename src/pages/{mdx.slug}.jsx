@@ -4,6 +4,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import VisuallyHidden from '@reach/visually-hidden';
 import Layout from '../components/layout';
+import PageTitle from '../components/page-title';
 import TagList from '../components/tag-list';
 import Date from '../components/date';
 import Seo from '../components/seo';
@@ -35,7 +36,7 @@ const BlogPost = ({ data }) => {
 
       <article>
         <header>
-          <h1>{title}</h1>
+          <PageTitle>{title}</PageTitle>
           <Date dateString={date} />
           <p>{description}</p>
 

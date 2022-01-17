@@ -4,6 +4,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import classnames from 'classnames';
 import VisuallyHidden from '@reach/visually-hidden';
 import Date from '../date';
+import DisplayFont from '../display-font';
 import TagList from '../tag-list';
 import * as styles from './post-list.module.css';
 
@@ -19,13 +20,13 @@ const PostList = ({ className, posts, title = 'All Blog Posts' }) => (
           <li className={styles.item} key={id}>
             <article className={styles.summary}>
               <header className={styles.header}>
-                <h3 className={styles.title}>
+                <DisplayFont as="h3">
                   <Link to={postUrl}>{frontmatter.title}</Link>
-                </h3>
+                </DisplayFont>
                 <Date dateString={frontmatter.date} />
 
                 {frontmatter.cover && (
-                  <Link to={postUrl}>
+                  <Link to={postUrl} tabIndex="-1">
                     <GatsbyImage
                       tabIndex={-1}
                       image={getImage(frontmatter.cover)}

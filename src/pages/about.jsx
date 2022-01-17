@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
+import PageTitle from '../components/page-title';
 import Seo from '../components/seo';
 
 const AboutPage = ({ data }) => {
@@ -11,7 +12,7 @@ const AboutPage = ({ data }) => {
         description="Learn more about this site and its author"
       />
 
-      <h1>About {data.site.siteMetadata.name}</h1>
+      <PageTitle>About {data.site.siteMetadata.name}</PageTitle>
       <p>This'll be the "about" page</p>
     </Layout>
   );

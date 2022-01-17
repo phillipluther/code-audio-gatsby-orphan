@@ -3,40 +3,41 @@ import { Link } from 'gatsby';
 import classnames from 'classnames';
 import * as styles from './primary-nav.module.css';
 
-const PrimaryNav = ({ className, home = true, ...props }) => {
-  const navLinks = [
-    {
-      href: '/posts',
-      label: 'Blog Posts',
-    },
-    {
-      href: '/about',
-      label: 'About',
-    },
-    {
-      href: '/contact',
-      label: 'Contact',
-    },
-  ];
+export const primaryNavLinks = [
+  {
+    href: '/',
+    label: 'Home',
+  },
+  {
+    href: '/posts',
+    label: 'All Posts',
+  },
+  {
+    href: '/about',
+    label: 'About',
+  },
+  {
+    href: '/contact',
+    label: 'Contact',
+  },
+];
 
-  if (home) {
-    navLinks.unshift({
-      href: '/',
-      label: 'Home',    
-    });
-  }
+const PrimaryNav = ({ className, home = true, ...props }) => (
+  <nav className={classnames(styles.wrapper, className)} {...props}>
+    <ul className={styles.list}>
+      {primaryNavLinks.map(({ href, label }) => {
+        if ((home === false) && (href === '/')) {
+          return null;
+        }
 
-  return (
-    <nav className={classnames(styles.wrapper, className)} {...props}>
-      <ul className={styles.list}>
-        {navLinks.map(({ href, label }) => (
+        return (
           <li className={styles.item} key={href}>
             <Link to={href} className={styles.link}>{label}</Link>
           </li>
-        ))}
-      </ul>
-    </nav>
-  );
-}
+        );
+      })}
+    </ul>
+  </nav>
+);
 
 export default PrimaryNav;

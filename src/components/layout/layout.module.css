@@ -25,37 +25,8 @@
 }
 
 .footer {
-  color: var(--color-core-light);
+  color: var(--color-core-lighter);
   background: var(--color-core-darkest);
-}
-
-.headerNav ul,
-.footerNav ul,
-.footerSocial {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.headerNav ul {
-  display: flex;
-}
-
-/* increase our tap-target size */
-.logoLink,
-.headerNav a {
-  margin: calc(var(--space-xs) * -1) 0;
-  padding: var(--space-xs) 0;
-}
-
-.headerNav a {
-  text-decoration: none;
-  margin-left: var(--space-xs);
-}
-
-.headerNav a:hover,
-.headerNav a:focus {
-  text-decoration: underline;
 }
 
 @media screen and (min-width: 600px) {

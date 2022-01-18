@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
 import classnames from 'classnames';
+import DisplayFont from '../display-font';
 import * as styles from './primary-nav.module.css';
 
 export const primaryNavLinks = [
@@ -31,9 +32,9 @@ const PrimaryNav = ({ className, home = true, ...props }) => (
         }
 
         return (
-          <li className={styles.item} key={href}>
+          <DisplayFont as="li" size="xs" className={styles.item} key={href}>
             <Link to={href} className={styles.link}>{label}</Link>
-          </li>
+          </DisplayFont>
         );
       })}
     </ul>

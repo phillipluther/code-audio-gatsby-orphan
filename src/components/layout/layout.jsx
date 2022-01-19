@@ -45,10 +45,24 @@ const Layout = ({
       <footer id="footer" className={styles.footer}>
         <VisuallyHidden as="h2">Page Footer</VisuallyHidden>
 
-        <Container as="section" id="footerNav">
+        <Container as="section" id="footerNav" className={styles.footerNav}>
           <VisuallyHidden as="h3">Footer Navigation</VisuallyHidden>
-          <PrimaryNav className={styles.footerNav} />
-          <Social className={styles.footerSocial} />
+          <PrimaryNav />
+          <Social />
+        </Container>
+
+        <Container as="section" id="footerNav">
+          <VisuallyHidden as="h3">Copyright Info and Disclaimers</VisuallyHidden>
+          <p>
+            The opinions and viewpoints expressed in any format of{' '}
+            <a href="https://code.audio">Code/Audio</a>{' '}
+            belong to me, Phillip Luther, and do not necessarily reflect the views or opinions
+            of any associated organizations or corporate entities.
+          </p>
+          <p>
+            All <a href="https://code.audio">Code/Audio</a> content is Copyright &copy; 2022
+            by Phillip Luther unless otherwise specified.
+          </p>
         </Container>
       </footer>
     </>

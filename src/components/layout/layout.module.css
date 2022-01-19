@@ -22,11 +22,29 @@
 .logoLink {
   display: block;
   line-height: 0;
+  padding: 8px 0; /* compensate for the smaller logo height */
 }
 
 .footer {
   color: var(--color-core-lighter);
   background: var(--color-core-darkest);
+}
+
+.footer p a {
+  color: var(--color-accent-lighter);
+}
+
+.footer p a:hover,
+.footer p a:focus {
+  color: var(--color-accent-lightest);
+}
+
+@media screen and (max-width: 599px) {
+  /* custom to account for tap-target heights and make the logo evenly padded */
+  .headerContent {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }
 
 @media screen and (min-width: 600px) {
@@ -37,5 +55,10 @@
   .logoLink {
     margin: 0;
     padding: 0;
+  }
+
+  .footerNav {
+    display: flex;
+    justify-content: space-between;
   }
 }

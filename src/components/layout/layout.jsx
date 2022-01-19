@@ -45,13 +45,13 @@ const Layout = ({
       <footer id="footer" className={styles.footer}>
         <VisuallyHidden as="h2">Page Footer</VisuallyHidden>
 
-        <Container as="section" id="footerNav" className={styles.footerNav}>
+        <Container as="section" id="footerNav" className={styles.footerMenu}>
           <VisuallyHidden as="h3">Footer Navigation</VisuallyHidden>
-          <PrimaryNav />
+          <PrimaryNav className={styles.footerNav} />
           <Social />
         </Container>
 
-        <Container as="section" id="footerNav">
+        <Container as="section" id="footerDisclaimers">
           <VisuallyHidden as="h3">Copyright Info and Disclaimers</VisuallyHidden>
           <p>
             The opinions and viewpoints expressed in any format of{' '}

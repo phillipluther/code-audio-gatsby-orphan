@@ -2,7 +2,20 @@
   font-family: Montserrat, sans-serif;
   font-weight: 800;
   letter-spacing: -1px;
+}
+
+.base,
+.base a {
   color: inherit;
+}
+
+.base a {
+  text-decoration: none;
+}
+
+.base a:hover {
+  text-decoration: underline;
+  color: var(--color-accent-dark);
 }
 
 .xs {

@@ -35,7 +35,11 @@
 }
 
 .footer p a:hover,
-.footer p a:focus {
+.footer p a:focus,
+.footerNav a:hover,
+.footerNav a:focus,
+.headerNav a:hover,
+.headerNav a:focus {
   color: var(--color-accent-lightest);
 }
 
@@ -57,7 +61,7 @@
     padding: 0;
   }
 
-  .footerNav {
+  .footerMenu {
     display: flex;
     justify-content: space-between;
   }

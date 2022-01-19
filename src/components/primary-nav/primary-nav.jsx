@@ -10,8 +10,8 @@ export const primaryNavLinks = [
     label: 'Home',
   },
   {
-    href: '/posts',
-    label: 'All Posts',
+    href: '/blog',
+    label: 'Blog',
   },
   {
     href: '/about',

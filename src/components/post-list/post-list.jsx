@@ -20,13 +20,13 @@ const PostList = ({ className, posts, title = 'All Blog Posts' }) => (
           <li className={styles.item} key={id}>
             <article className={styles.summary}>
               <header className={styles.header}>
-                <DisplayFont as="h3">
+                <DisplayFont as="h3" className={styles.title}>
                   <Link to={postUrl}>{frontmatter.title}</Link>
                 </DisplayFont>
-                <Date dateString={frontmatter.date} />
+                <Date dateString={frontmatter.date} className={styles.date} />
 
                 {frontmatter.cover && (
-                  <Link to={postUrl} tabIndex="-1">
+                  <Link to={postUrl} tabIndex="-1" className={styles.cover}>
                     <GatsbyImage
                       tabIndex={-1}
                       image={getImage(frontmatter.cover)}
@@ -37,10 +37,10 @@ const PostList = ({ className, posts, title = 'All Blog Posts' }) => (
                 )}
               </header>
 
-              <p className={styles.description}>{frontmatter.description}</p>
+              <p>{frontmatter.description}</p>
 
-              <footer className={styles.footer}>
-                <Link to={postUrl} className={styles.link}>
+              <footer>
+                <Link to={postUrl} className={styles.cta}>
                   Read More
                   <VisuallyHidden>{` | ${frontmatter.title}`}</VisuallyHidden>
                 </Link>

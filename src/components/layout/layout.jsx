@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
+import classnames from 'classnames';
 import VisuallyHidden from '@reach/visually-hidden';
 import PrimaryNav from '../primary-nav';
 import Social from '../social';
@@ -45,24 +46,26 @@ const Layout = ({
       <footer id="footer" className={styles.footer}>
         <VisuallyHidden as="h2">Page Footer</VisuallyHidden>
 
-        <Container as="section" id="footerNav" className={styles.footerMenu}>
-          <VisuallyHidden as="h3">Footer Navigation</VisuallyHidden>
-          <PrimaryNav className={styles.footerNav} />
-          <Social />
-        </Container>
+        <Container as="div" className={styles.footerContent} large>
+          <section className={classnames(styles.footerMenu, styles.footerSection)}>
+            <VisuallyHidden as="h3">Footer Navigation</VisuallyHidden>
+            <PrimaryNav className={styles.footerNav} />
+            <Social />
+          </section>
 
-        <Container as="section" id="footerDisclaimers">
-          <VisuallyHidden as="h3">Copyright Info and Disclaimers</VisuallyHidden>
-          <p>
-            The opinions and viewpoints expressed in any format of{' '}
-            <a href="https://code.audio">Code/Audio</a>{' '}
-            belong to me, Phillip Luther, and do not necessarily reflect the views or opinions
-            of any associated organizations or corporate entities.
-          </p>
-          <p>
-            All <a href="https://code.audio">Code/Audio</a> content is Copyright &copy; 2022
-            by Phillip Luther unless otherwise specified.
-          </p>
+          <section className={classnames(styles.small, styles.footerSection)}>
+            <VisuallyHidden as="h3">Copyright Info and Disclaimers</VisuallyHidden>
+            <p>
+              The opinions and viewpoints expressed in any format of{' '}
+              <a href="https://code.audio">Code/Audio</a>{' '}
+              belong to me, Phillip Luther, and do not necessarily reflect the views or opinions
+              of any associated organizations or corporate entities.
+            </p>
+            <p>
+              All <a href="https://code.audio">Code/Audio</a> content is Copyright &copy; 2022
+              by Phillip Luther unless otherwise specified.
+            </p>
+          </section>
         </Container>
       </footer>
     </>

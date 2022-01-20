@@ -43,6 +43,29 @@
   color: var(--color-accent-lightest);
 }
 
+.small {
+  font-size: var(--font-size-0);
+}
+
+.footerContent {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footerSection {
+  width: 100%;
+  max-width: 760px;
+  margin-bottom: var(--space-sm);
+}
+
+.footerMenu {
+  margin-top: var(--space-xs);
+}
+
+.footerNav {
+  margin-left: calc(var(--space-xs) * -1 / 2);
+}
+
 @media screen and (max-width: 599px) {
   /* custom to account for tap-target heights and make the logo evenly padded */
   .headerContent {
@@ -64,5 +87,23 @@
   .footerMenu {
     display: flex;
     justify-content: space-between;
+  }
+
+  .footerMenu {
+    margin-top: var(--space-sm);
+  }
+
+  .footerSection {
+    margin-bottom: var(--space-md);
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .footerMenu {
+    margin-top: var(--space-md);
+  }
+
+  .footerSection {
+    margin-bottom: var(--space-lg);
   }
 }

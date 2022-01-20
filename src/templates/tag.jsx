@@ -3,14 +3,23 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import PageTitle from '../components/page-title';
 import PostList from '../components/post-list';
+import Container from '../components/container';
+import Seo from '../components/seo';
 
 const PostsPage = ({ data, pageContext }) => {
   return (
     <Layout>
-      <PageTitle>Posts Tagged: {pageContext.tag}</PageTitle>
-      <hr />
+      <Seo
+        title={`Posts tagged as ${pageContext.tag}`}
+        description={
+          `Featuring the blog posts about ${pageContext.tag}, web application development, programmatic audio, and more.`
+        }
+      />
 
-      <PostList posts={data.allMdx.nodes} />
+      <Container large>
+        <PageTitle>Posts Tagged: {pageContext.tag}</PageTitle>
+        <PostList posts={data.allMdx.nodes} />
+      </Container>
     </Layout>
   );
 };

@@ -21,7 +21,6 @@ const BlogPage = ({ data }) => {
         <PageTitle>All Blog Posts</PageTitle>
         <PostList posts={data.allMdx.nodes} />
       </Container>
-
     </Layout>
   );
 };

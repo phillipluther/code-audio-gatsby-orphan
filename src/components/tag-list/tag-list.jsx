@@ -7,7 +7,7 @@ import * as styles from './tag-list.module.css';
 const TagList = ({ tags, className, ...props }) => (
   <ul className={classnames(styles.list, className)} {...props}>
     {tags.map((tagName) => (
-      <li key={tagName} className={styles.item}>
+      <li key={tagName}>
         <Link to={`/tags/${slugify(tagName)}`} className={styles.link}>{tagName}</Link>
       </li>
     ))}

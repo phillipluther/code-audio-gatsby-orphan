@@ -1,0 +1,27 @@
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: var(--font-size-0);
+}
+
+.link {
+  --link-offset: var(--space-xs);
+
+  display: block;
+  color: var(--color-accent);
+  line-height: 48px;
+  white-space: nowrap;
+  padding: 0 var(--space-xs);
+  margin-right: calc(var(--space-xs) / 2);
+  background: var(--color-core-lightest);
+}
+
+.link:hover {
+  text-decoration: none;
+  color: var(--color-accent-darker);
+}
+
+

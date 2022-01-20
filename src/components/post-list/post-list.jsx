@@ -40,11 +40,6 @@ const PostList = ({ className, posts, title = 'All Blog Posts' }) => (
               <p>{frontmatter.description}</p>
 
               <footer>
-                <Link to={postUrl} className={styles.cta}>
-                  Read More
-                  <VisuallyHidden>{` | ${frontmatter.title}`}</VisuallyHidden>
-                </Link>
-
                 <section aria-label="Related Topics">
                   <TagList tags={frontmatter.tags} />
                 </section>

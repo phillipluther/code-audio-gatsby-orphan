@@ -1,7 +1,14 @@
 .base {
   font-family: Montserrat, sans-serif;
-  font-weight: 800;
   letter-spacing: -1px;
+}
+
+.base:not(.light) {
+  font-weight: 800;
+}
+
+.light {
+  font-weight: 600;
 }
 
 .base,

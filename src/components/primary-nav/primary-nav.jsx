@@ -32,7 +32,7 @@ const PrimaryNav = ({ className, home = true, ...props }) => (
         }
 
         return (
-          <DisplayFont as="li" size="xs" className={styles.item} key={href}>
+          <DisplayFont as="li" size="xs" className={styles.item} key={href} light>
             <Link to={href} className={styles.link}>{label}</Link>
           </DisplayFont>
         );

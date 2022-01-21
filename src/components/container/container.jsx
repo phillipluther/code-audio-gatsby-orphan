@@ -5,13 +5,13 @@ import * as styles from './container.module.css';
 const Container = ({
   className,
   children,
-  noX,
-  noY,
-  noTop,
-  noBottom,
-  noRight,
-  noLeft,
-  large,
+  noX = false,
+  noY = false,
+  noTop = false,
+  noBottom = false,
+  noRight = false,
+  noLeft = false,
+  large = false,
   as: Tag = 'div',
   ...props
 }) => {

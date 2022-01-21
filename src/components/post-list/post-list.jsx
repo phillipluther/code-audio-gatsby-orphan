@@ -20,7 +20,7 @@ const PostList = ({ className, posts, title = 'All Blog Posts' }) => (
           <li className={styles.item} key={id}>
             <article className={styles.summary}>
               <header className={styles.header}>
-                <DisplayFont as="h3" className={styles.title}>
+                <DisplayFont as="h3" size="sm" className={styles.title}>
                   <Link to={postUrl}>{frontmatter.title}</Link>
                 </DisplayFont>
                 <Date dateString={frontmatter.date} className={styles.date} />

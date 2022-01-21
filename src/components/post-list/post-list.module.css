@@ -35,7 +35,7 @@
   order: 3;
 }
 
-@media screen and (min-width: 680px) {
+@media screen and (min-width: 640px) {
   .list {
     --list-offset: calc((var(--space-sm) / 2) * -1);
 

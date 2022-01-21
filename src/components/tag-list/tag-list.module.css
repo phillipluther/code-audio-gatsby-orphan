@@ -17,6 +17,7 @@
   padding: 0 var(--space-xs);
   margin-right: calc(var(--space-xs) / 2);
   background: var(--color-core-lightest);
+  border-radius: 3px;
 }
 
 .link:hover {

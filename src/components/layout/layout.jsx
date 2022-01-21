@@ -29,7 +29,7 @@ const Layout = ({
   return (
     <>
       <header id="header" className={styles.header}>
-        <Container className={styles.headerContent} large>
+        <Container className={styles.headerContent} large noY>
           <TitleTag className={styles.branding}>
             <Link to="/" className={styles.logoLink}>
               <Logo className={styles.logo} aria-hidden="true" alt="" />

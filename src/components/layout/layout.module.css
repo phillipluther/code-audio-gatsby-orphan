@@ -8,6 +8,8 @@
   justify-content: space-between;
   align-items: center;
   font-family: var(--display-font);
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .branding {
@@ -22,7 +24,7 @@
 .logoLink {
   display: block;
   line-height: 0;
-  padding: 8px 0; /* compensate for the smaller logo height */
+  padding: 8px 0; /* compensate for the smaller logo height  */
 }
 
 .footer {
@@ -66,22 +68,19 @@
   margin-left: calc(var(--space-xs) * -1 / 2);
 }
 
-@media screen and (max-width: 599px) {
-  /* custom to account for tap-target heights and make the logo evenly padded */
-  .headerContent {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-}
-
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 640px) {
   .logo {
-    height: 48px;
+    height: 40px;
   }
 
   .logoLink {
     margin: 0;
-    padding: 0;
+    padding: 4px 0;
+  }
+
+  .headerContent {
+    padding-top: 14px;
+    padding-bottom: 14px;
   }
 
   .footerMenu {
@@ -99,6 +98,10 @@
 }
 
 @media screen and (min-width: 1100px) {
+  .logoLink {
+    padding: 0;
+  }
+
   .footerMenu {
     margin-top: var(--space-md);
   }

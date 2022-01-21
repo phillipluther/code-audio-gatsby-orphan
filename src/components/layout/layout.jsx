@@ -41,7 +41,9 @@ const Layout = ({
         </Container>
       </header>
 
-      <main>{children}</main>
+      <Container as="main" className={styles.main} large>
+        {children}
+      </Container>
 
       <footer id="footer" className={styles.footer}>
         <VisuallyHidden as="h2">Page Footer</VisuallyHidden>

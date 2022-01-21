@@ -1,11 +1,14 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../components/layout';
+import VisuallyHidden from '@reach/visually-hidden';
+import Layout, { Column } from '../components/layout';
+import DisplayFont from '../components/display-font';
 import PageTitle from '../components/page-title';
 import Seo from '../components/seo';
 
 const ContactPage = ({ data }) => {
   const { siteMetadata } = data.site;
+  
   return (
     <Layout>
       <Seo
@@ -15,8 +18,22 @@ const ContactPage = ({ data }) => {
         }
       />
 
-      <PageTitle>Contact Info</PageTitle>
-      <p>This'll be the "contact" page</p>
+      <PageTitle>{siteMetadata.name} Contact Info</PageTitle>
+
+      <Column size="lg">
+        <DisplayFont as="h2">Get In Touch!</DisplayFont>
+        <p>
+          Got questions, comments, ideas, or feedback for {siteMetadata.name}?
+          Found some errata and itching to well-actually a post?
+          Came across something busted on the site?
+        </p>
+      </Column>
+
+      <Column size="sm" aside>
+        <VisuallyHidden as="h2">Contact Us Via</VisuallyHidden>
+        <DisplayFont as="p" size="xs">Email:</DisplayFont>
+        <p>hello@code.audio</p>
+      </Column>
     </Layout>
   );
 };

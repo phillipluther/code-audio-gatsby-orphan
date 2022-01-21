@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import PostList from '../components/post-list';
 import PageTitle from '../components/page-title';
-import Container from '../components/container';
 import Seo from '../components/seo';
 
 const BlogPage = ({ data }) => {
@@ -17,10 +16,8 @@ const BlogPage = ({ data }) => {
         }
       />
 
-      <Container large>
-        <PageTitle>All Blog Posts</PageTitle>
-        <PostList posts={data.allMdx.nodes} />
-      </Container>
+      <PageTitle>All Blog Posts</PageTitle>
+      <PostList posts={data.allMdx.nodes} />
     </Layout>
   );
 };

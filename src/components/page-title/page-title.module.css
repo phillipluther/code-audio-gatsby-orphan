@@ -1,4 +1,6 @@
 .title {
+  display: block;
+  width: 100%;
   color: var(--color-core-darker);
   margin: 0 0 var(--space-xs);
   padding: 0 0 var(--space-xs);

@@ -27,6 +27,13 @@
   padding: 8px 0; /* compensate for the smaller logo height  */
 }
 
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
 .footer {
   color: var(--color-core-lighter);
   background: var(--color-core-darkest);
@@ -68,6 +75,10 @@
   margin-left: calc(var(--space-xs) * -1 / 2);
 }
 
+.aside {
+  background: green;
+}
+
 @media screen and (min-width: 640px) {
   .logo {
     height: 40px;
@@ -100,6 +111,10 @@
 @media screen and (min-width: 1100px) {
   .logoLink {
     padding: 0;
+  }
+
+  .headerNav a {
+    margin-left: calc(var(--space-sm) / 2);
   }
 
   .footerMenu {

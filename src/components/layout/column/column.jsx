@@ -4,7 +4,7 @@ import * as styles from './column.module.css';
 
 const Column = ({
   aside = false,
-  size = 'md',
+  size,
   className,
   children,
   ...props
@@ -13,15 +13,11 @@ const Column = ({
 
   return (
     <ColumnTag
-      className={classnames(
-        styles.column,
-        {
-          [styles.sm]: size === 'sm',
-          [styles.md]: size === 'md',
-          [styles.lg]: size === 'lg',
-        },
-        className,
-      )}
+      className={classnames(styles.column, {
+        [styles.oneThird]: size === '1-3',
+        [styles.half]: size === '1-2',
+        [styles.twoThirds]: size === '2-3',
+      }, className)}
       {...props}
     >
       {children}

@@ -20,7 +20,7 @@ const ContactPage = ({ data }) => {
 
       <PageTitle>{siteMetadata.name} Contact Info</PageTitle>
 
-      <Column size="lg">
+      <Column size="2-3">
         <DisplayFont as="h2">Get In Touch!</DisplayFont>
         <p>
           Got questions, comments, ideas, or feedback for {siteMetadata.name}?
@@ -29,7 +29,7 @@ const ContactPage = ({ data }) => {
         </p>
       </Column>
 
-      <Column size="sm" aside>
+      <Column size="1-3" aside>
         <VisuallyHidden as="h2">Contact Us Via</VisuallyHidden>
         <DisplayFont as="p" size="xs">Email:</DisplayFont>
         <p>hello@code.audio</p>

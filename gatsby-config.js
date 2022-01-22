@@ -7,6 +7,7 @@ module.exports = {
     social: [
       {
         name: 'twitter',
+        contact: '@phillipluther',
         label: '@phillipluther on Twitter',
         link: 'https://twitter.com/phillipluther',
       },
@@ -22,6 +23,7 @@ module.exports = {
       },
       {
         name: 'email',
+        contact: 'hello@code.audio',
         label: 'Email hello@code.audio',
         link: 'mailto:hello@code.audio',
       },

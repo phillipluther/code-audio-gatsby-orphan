@@ -1,0 +1,22 @@
+.wrapper {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  margin-bottom: var(--space-xs);
+}
+
+.title {
+  display: block;
+  text-transform: capitalize;
+  font-size: var(--font-size-0);
+  color: var(--color-core-darker);
+}
+
+@media screen and (min-width: 760px) {
+  .item {
+    margin-bottom: var(--space-sm);
+  }  
+}

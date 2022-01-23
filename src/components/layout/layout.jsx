@@ -52,7 +52,7 @@ const Layout = ({
           <section className={classnames(styles.footerMenu, styles.footerSection)}>
             <VisuallyHidden as="h3">Footer Navigation</VisuallyHidden>
             <PrimaryNav className={styles.footerNav} />
-            <Social />
+            <Social className={styles.footerSocial} />
           </section>
 
           <section className={classnames(styles.small, styles.footerSection)}>

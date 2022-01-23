@@ -75,8 +75,20 @@
   margin-left: calc(var(--space-xs) * -1 / 2);
 }
 
-.aside {
-  background: green;
+.footerSocial a:hover,
+.footerSocial a:focus {
+  color: var(--color-core-lightest);
+}
+
+.footerSocial a:hover::after,
+.footerSocial a:focus::after {
+  border-color: var(--color-core-lightest);
+}
+
+@media screen and (max-width: 639px) {
+  .footerSocial {
+    margin-left: -9px;
+  }
 }
 
 @media screen and (min-width: 640px) {

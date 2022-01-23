@@ -22,7 +22,7 @@ const ContactPage = ({ data }) => {
       <Seo
         title="Contact Info"
         description={
-          `Got comments, questions, or feedback for ${siteMetadata.name}? This is the right place!`
+          `Comments, questions, or feedback for ${siteMetadata.name}? Email and Twitter are the best places to contact us.`
         }
       />
 

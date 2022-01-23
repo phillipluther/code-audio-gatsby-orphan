@@ -71,7 +71,7 @@ module.exports = {
         background_color: '#fff',
         theme_color: '#011223',
         display: 'standalone',
-        icon: 'src/code-audio-badge.png',
+        icon: 'src/images/code-audio-badge.png',
       },
     },
   ],

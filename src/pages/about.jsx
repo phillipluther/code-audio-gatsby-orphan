@@ -1,19 +1,36 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../components/layout';
+import Layout, { Column } from '../components/layout';
 import PageTitle from '../components/page-title';
+import DisplayFont from '../components/display-font';
 import Seo from '../components/seo';
+import AuthorCard from '../components/author-card';
 
 const AboutPage = ({ data }) => {
+  const { siteMetadata: { name: siteName }} = data.site;
+  const portraitStyle = {
+    margin: '0  24px 1rem 0',
+  };
+
   return (
     <Layout>
       <Seo
         title="About"
-        description="Learn more about this site and its author"
+        description={
+          `What kind of software and audio engineering posts can you find on ${siteName}? How did the blog get started? Your questions answered!` 
+        }
       />
 
-      <PageTitle>About {data.site.siteMetadata.name}</PageTitle>
-      <p>This'll be the "about" page</p>
+      <PageTitle>What's {siteName} All About?</PageTitle>
+      <Column size="1-2">
+        <DisplayFont as="h2">About the Blog</DisplayFont>
+        <p>
+          This blog covers frontend engineering, music, and programmatic audio.
+        </p>
+      </Column>
+      <Column size="1-2">
+        <AuthorCard embedded />
+      </Column>
     </Layout>
   );
 };

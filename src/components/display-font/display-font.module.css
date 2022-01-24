@@ -45,7 +45,22 @@
   font-size: var(--font-size-5);
 }
 
+.md,
 .lg,
 .xl {
   line-height: 1.33;
+}
+
+.inherit {
+  font-size: 1rem;
+}
+
+@media (min-width: 640px) {
+  .lg {
+    font-size: var(--font-size-5);
+  }
+
+  .xl {
+    font-size: var(--font-size-7);
+  }
 }

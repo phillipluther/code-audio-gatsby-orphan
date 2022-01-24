@@ -28,6 +28,7 @@
   --font-size-9: 5.96rem;
 
   /* 1.333 scaling based on 24px as medium */
+  --space-micro: 8px;
   --space-xs: 18px;
   --space-sm: 24px;
   --space-md: 32px;

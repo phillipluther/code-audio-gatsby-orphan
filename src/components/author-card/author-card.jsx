@@ -24,7 +24,7 @@ const AuthorCard = ({
     }
   `);
 
-  const titleSize = embedded ? 'md' : 'xs';
+  const titleSize = embedded ? null : 'xs';
 
   return (
     <Container
@@ -54,10 +54,12 @@ const AuthorCard = ({
 
       {children}
 
-      <DisplayFont size="xs" as="h3" className={styles.subhead}>
-        Connect With Me:
-      </DisplayFont>
-      <Social className={styles.social} />
+      <div className={styles.connect}>
+        <DisplayFont size="xs" as="h3" light className={styles.subhead}>
+          Connect With Me:
+        </DisplayFont>
+        <Social className={styles.social} />
+      </div>
 
       <p className={styles.small} id="life_long_clarification">
         <span>*</span>

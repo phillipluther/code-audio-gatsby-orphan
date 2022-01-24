@@ -20,22 +20,25 @@
 }
 
 .small span + span {
-  margin-left: 8px;
+  margin-left: var(--space-micro);
 }
 
-.social {
+.connect {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   margin-bottom: 1rem;
 }
 
 .subhead {
-  margin: 0;
+  margin: 0 var(--space-micro) 0 0;
 }
 
 @media screen and (min-width: 640px) {
   .image {
     width: 144px;
     height: 144px;
-    margin: 0 0 8px var(--space-sm);
+    margin: 0 0 var(--space-micro) var(--space-sm);
     float: right;
   }
 }

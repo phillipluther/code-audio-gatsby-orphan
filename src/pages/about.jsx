@@ -33,6 +33,8 @@ const AboutPage = ({ data }) => {
         <p>
           So is the goal, at least.
         </p>
+        <DisplayFont as="h3">What Kind of Software Engineering?</DisplayFont>
+        <DisplayFont as="h3">What Kind of Audio/Music?</DisplayFont>
       </Column>
       <Column size="1-2">
         <AuthorCard embedded />

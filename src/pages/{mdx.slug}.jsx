@@ -8,6 +8,7 @@ import PageTitle from '../components/page-title';
 import TagList from '../components/tag-list';
 import Date from '../components/date';
 import Seo from '../components/seo';
+import AuthorCard from '../components/author-card';
 
 const BlogPost = ({ data }) => {
   const {
@@ -61,6 +62,8 @@ const BlogPost = ({ data }) => {
             <h3>More Like This</h3>
             <TagList tags={tags} />
           </section>
+
+          <AuthorCard as="section" />
         </footer>
       </article>
     </Layout>

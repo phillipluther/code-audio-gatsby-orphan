@@ -62,7 +62,7 @@ const AuthorCard = ({
       <p className={styles.small} id="life_long_clarification">
         <span>*</span>
         <span>
-          I'm just over 40. Accounting for childhood and teenage buffoonery I'll translate "life long" to 25'ish years. Just for clarity.
+          I'm just over 40. Accounting for childhood and teenage buffoonery I'll translate "life long" to 25'ish years. For clarity.
         </span>
       </p>
     </Container>

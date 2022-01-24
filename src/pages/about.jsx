@@ -25,7 +25,13 @@ const AboutPage = ({ data }) => {
       <Column size="1-2">
         <DisplayFont as="h2">About the Blog</DisplayFont>
         <p>
-          This blog covers frontend engineering, music, and programmatic audio.
+          Have you ever noticed how many software engineers make music? Practically every coder I know programs beats or plays guitar or holds a music degree or, at the very least, fans out for specific genres.
+        </p>
+        <p>
+          This blog covers that union; it's about frontend engineering, music, and programmatic audio. That's not to say every post bundles development <em>and</em> audio, but articles specifically diving into one will contain threads of the other. If you're a musician who codes or a coder who musics, you should find this stuff interesting.
+        </p>
+        <p>
+          So is the goal, at least.
         </p>
       </Column>
       <Column size="1-2">
